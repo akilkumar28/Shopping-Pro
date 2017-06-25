@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B4E5150AE63E09B2FD65973 /* Pods_Shopping_ProTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9991E283CC3DA5E8227235D5 /* Pods_Shopping_ProTests.framework */; };
 		891E19101EFF8F3500295BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E190F1EFF8F3500295BAA /* AppDelegate.swift */; };
 		891E19121EFF8F3500295BAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E19111EFF8F3500295BAA /* ViewController.swift */; };
 		891E19151EFF8F3500295BAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 891E19131EFF8F3500295BAA /* Main.storyboard */; };
@@ -14,6 +15,9 @@
 		891E191A1EFF8F3500295BAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 891E19181EFF8F3500295BAA /* LaunchScreen.storyboard */; };
 		891E19251EFF8F3500295BAA /* Shopping_ProTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E19241EFF8F3500295BAA /* Shopping_ProTests.swift */; };
 		891E19301EFF8F3500295BAA /* Shopping_ProUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E192F1EFF8F3500295BAA /* Shopping_ProUITests.swift */; };
+		891E193E1EFF91D800295BAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 891E193D1EFF91D800295BAA /* GoogleService-Info.plist */; };
+		C96DC8C0CBA6B3EC44C1D2B6 /* Pods_Shopping_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B39E09A869A87552FEC57E /* Pods_Shopping_Pro.framework */; };
+		F14CB265C9B9E0FCC7ECE41C /* Pods_Shopping_ProUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E477C7789A795F290F400BC /* Pods_Shopping_ProUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		299F1BC46C0407DCC151F680 /* Pods-Shopping ProUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping ProUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping ProUITests/Pods-Shopping ProUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		45D3612F6521412662B42F34 /* Pods-Shopping Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping Pro/Pods-Shopping Pro.release.xcconfig"; sourceTree = "<group>"; };
+		51D0C1CCB82CF27A6350444E /* Pods-Shopping ProUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping ProUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping ProUITests/Pods-Shopping ProUITests.release.xcconfig"; sourceTree = "<group>"; };
+		60B39E09A869A87552FEC57E /* Pods_Shopping_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72AD768B21936AED1FB33BF1 /* Pods-Shopping ProTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping ProTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping ProTests/Pods-Shopping ProTests.release.xcconfig"; sourceTree = "<group>"; };
 		891E190C1EFF8F3500295BAA /* Shopping Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		891E190F1EFF8F3500295BAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		891E19111EFF8F3500295BAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +56,11 @@
 		891E192B1EFF8F3500295BAA /* Shopping ProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shopping ProUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		891E192F1EFF8F3500295BAA /* Shopping_ProUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping_ProUITests.swift; sourceTree = "<group>"; };
 		891E19311EFF8F3500295BAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		891E193D1EFF91D800295BAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9991E283CC3DA5E8227235D5 /* Pods_Shopping_ProTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_ProTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E477C7789A795F290F400BC /* Pods_Shopping_ProUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_ProUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FD79898B37BEECAF81E3F9A /* Pods-Shopping ProTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping ProTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping ProTests/Pods-Shopping ProTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F166536D378847D32291D6B9 /* Pods-Shopping Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping Pro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping Pro/Pods-Shopping Pro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C96DC8C0CBA6B3EC44C1D2B6 /* Pods_Shopping_Pro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4E5150AE63E09B2FD65973 /* Pods_Shopping_ProTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F14CB265C9B9E0FCC7ECE41C /* Pods_Shopping_ProUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +98,8 @@
 				891E19231EFF8F3500295BAA /* Shopping ProTests */,
 				891E192E1EFF8F3500295BAA /* Shopping ProUITests */,
 				891E190D1EFF8F3500295BAA /* Products */,
+				BCB7E394DD12C69E59C5BB54 /* Pods */,
+				B931A013E02F37BBDD1CC564 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +122,7 @@
 				891E19161EFF8F3500295BAA /* Assets.xcassets */,
 				891E19181EFF8F3500295BAA /* LaunchScreen.storyboard */,
 				891E191B1EFF8F3500295BAA /* Info.plist */,
+				891E193D1EFF91D800295BAA /* GoogleService-Info.plist */,
 			);
 			path = "Shopping Pro";
 			sourceTree = "<group>";
@@ -125,6 +145,29 @@
 			path = "Shopping ProUITests";
 			sourceTree = "<group>";
 		};
+		B931A013E02F37BBDD1CC564 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60B39E09A869A87552FEC57E /* Pods_Shopping_Pro.framework */,
+				9991E283CC3DA5E8227235D5 /* Pods_Shopping_ProTests.framework */,
+				9E477C7789A795F290F400BC /* Pods_Shopping_ProUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BCB7E394DD12C69E59C5BB54 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F166536D378847D32291D6B9 /* Pods-Shopping Pro.debug.xcconfig */,
+				45D3612F6521412662B42F34 /* Pods-Shopping Pro.release.xcconfig */,
+				9FD79898B37BEECAF81E3F9A /* Pods-Shopping ProTests.debug.xcconfig */,
+				72AD768B21936AED1FB33BF1 /* Pods-Shopping ProTests.release.xcconfig */,
+				299F1BC46C0407DCC151F680 /* Pods-Shopping ProUITests.debug.xcconfig */,
+				51D0C1CCB82CF27A6350444E /* Pods-Shopping ProUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 891E19341EFF8F3500295BAA /* Build configuration list for PBXNativeTarget "Shopping Pro" */;
 			buildPhases = (
+				1C9FE8304B855BC15714A61F /* [CP] Check Pods Manifest.lock */,
 				891E19081EFF8F3500295BAA /* Sources */,
 				891E19091EFF8F3500295BAA /* Frameworks */,
 				891E190A1EFF8F3500295BAA /* Resources */,
+				B8DE37F92B7758E45AA1B02C /* [CP] Embed Pods Frameworks */,
+				70CE76B8B33F5D645CC2FA24 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 891E19371EFF8F3500295BAA /* Build configuration list for PBXNativeTarget "Shopping ProTests" */;
 			buildPhases = (
+				3C754560A11EA572B6DBDD1F /* [CP] Check Pods Manifest.lock */,
 				891E191C1EFF8F3500295BAA /* Sources */,
 				891E191D1EFF8F3500295BAA /* Frameworks */,
 				891E191E1EFF8F3500295BAA /* Resources */,
+				F57BD6503FBF32F024641984 /* [CP] Embed Pods Frameworks */,
+				5338D350C3E6B7D25A8C6247 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +216,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 891E193A1EFF8F3500295BAA /* Build configuration list for PBXNativeTarget "Shopping ProUITests" */;
 			buildPhases = (
+				613A61AC1730E70A79FDE673 /* [CP] Check Pods Manifest.lock */,
 				891E19271EFF8F3500295BAA /* Sources */,
 				891E19281EFF8F3500295BAA /* Frameworks */,
 				891E19291EFF8F3500295BAA /* Resources */,
+				0257F416F332A83F6E7CD090 /* [CP] Embed Pods Frameworks */,
+				F11466B84971B08B0EEE8632 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				891E191A1EFF8F3500295BAA /* LaunchScreen.storyboard in Resources */,
+				891E193E1EFF91D800295BAA /* GoogleService-Info.plist in Resources */,
 				891E19171EFF8F3500295BAA /* Assets.xcassets in Resources */,
 				891E19151EFF8F3500295BAA /* Main.storyboard in Resources */,
 			);
@@ -256,6 +309,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0257F416F332A83F6E7CD090 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopping ProUITests/Pods-Shopping ProUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1C9FE8304B855BC15714A61F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3C754560A11EA572B6DBDD1F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5338D350C3E6B7D25A8C6247 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopping ProTests/Pods-Shopping ProTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		613A61AC1730E70A79FDE673 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		70CE76B8B33F5D645CC2FA24 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopping Pro/Pods-Shopping Pro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8DE37F92B7758E45AA1B02C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopping Pro/Pods-Shopping Pro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F11466B84971B08B0EEE8632 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopping ProUITests/Pods-Shopping ProUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F57BD6503FBF32F024641984 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopping ProTests/Pods-Shopping ProTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		891E19081EFF8F3500295BAA /* Sources */ = {
@@ -415,6 +606,7 @@
 		};
 		891E19351EFF8F3500295BAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F166536D378847D32291D6B9 /* Pods-Shopping Pro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6UPMA52VHK;
@@ -428,6 +620,7 @@
 		};
 		891E19361EFF8F3500295BAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45D3612F6521412662B42F34 /* Pods-Shopping Pro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6UPMA52VHK;
@@ -441,6 +634,7 @@
 		};
 		891E19381EFF8F3500295BAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FD79898B37BEECAF81E3F9A /* Pods-Shopping ProTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -456,6 +650,7 @@
 		};
 		891E19391EFF8F3500295BAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72AD768B21936AED1FB33BF1 /* Pods-Shopping ProTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,6 +666,7 @@
 		};
 		891E193B1EFF8F3500295BAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 299F1BC46C0407DCC151F680 /* Pods-Shopping ProUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6UPMA52VHK;
@@ -485,6 +681,7 @@
 		};
 		891E193C1EFF8F3500295BAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51D0C1CCB82CF27A6350444E /* Pods-Shopping ProUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6UPMA52VHK;
@@ -516,6 +713,7 @@
 				891E19361EFF8F3500295BAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		891E19371EFF8F3500295BAA /* Build configuration list for PBXNativeTarget "Shopping ProTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +722,7 @@
 				891E19391EFF8F3500295BAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		891E193A1EFF8F3500295BAA /* Build configuration list for PBXNativeTarget "Shopping ProUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +731,7 @@
 				891E193C1EFF8F3500295BAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
