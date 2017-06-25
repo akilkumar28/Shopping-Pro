@@ -16,6 +16,7 @@ class AddItemVC: UIViewController {
     var shoppingList:ShoppingList!
     
     
+    @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var nameTxtFld: UITextField!
     @IBOutlet weak var extranInfoTxtFld: UITextField!
     @IBOutlet weak var quantityTxtFld: UITextField!
@@ -42,6 +43,7 @@ class AddItemVC: UIViewController {
         }else{
             KRProgressHUD.showWarning(withMessage: "Empty Fields!")
         }
+        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func cancelBtnTapped(_ sender: Any) {
