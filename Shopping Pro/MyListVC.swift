@@ -56,8 +56,25 @@ class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("")
+        myTableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "myListToShoppingItemSegue", sender: indexPath)
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "myListToShoppingItemSegue" {
+            
+            let index = sender as! IndexPath
+            
+            let currentList = myListArray[index.row]
+            
+            if let destination = segue.destination as? ShoppingItemVC {
+                destination.shoppingList = currentList
+            }
+        }
+    }
+    
     
     
     @IBAction func addBarBtnPrssd(_ sender: Any) {
