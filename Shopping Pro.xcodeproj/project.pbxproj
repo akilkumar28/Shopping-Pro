@@ -117,10 +117,12 @@
 			isa = PBXGroup;
 			children = (
 				891E190F1EFF8F3500295BAA /* AppDelegate.swift */,
-				891E19111EFF8F3500295BAA /* ViewController.swift */,
+				891E19411EFF99E700295BAA /* Model */,
+				891E19401EFF99E400295BAA /* View */,
+				891E193F1EFF99E200295BAA /* Controller */,
 				891E19131EFF8F3500295BAA /* Main.storyboard */,
-				891E19161EFF8F3500295BAA /* Assets.xcassets */,
 				891E19181EFF8F3500295BAA /* LaunchScreen.storyboard */,
+				891E19161EFF8F3500295BAA /* Assets.xcassets */,
 				891E191B1EFF8F3500295BAA /* Info.plist */,
 				891E193D1EFF91D800295BAA /* GoogleService-Info.plist */,
 			);
@@ -143,6 +145,28 @@
 				891E19311EFF8F3500295BAA /* Info.plist */,
 			);
 			path = "Shopping ProUITests";
+			sourceTree = "<group>";
+		};
+		891E193F1EFF99E200295BAA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				891E19111EFF8F3500295BAA /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		891E19401EFF99E400295BAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		891E19411EFF99E700295BAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		B931A013E02F37BBDD1CC564 /* Frameworks */ = {
