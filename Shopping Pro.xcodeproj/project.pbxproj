@@ -9,13 +9,18 @@
 /* Begin PBXBuildFile section */
 		3B4E5150AE63E09B2FD65973 /* Pods_Shopping_ProTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9991E283CC3DA5E8227235D5 /* Pods_Shopping_ProTests.framework */; };
 		891E19101EFF8F3500295BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E190F1EFF8F3500295BAA /* AppDelegate.swift */; };
-		891E19121EFF8F3500295BAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E19111EFF8F3500295BAA /* ViewController.swift */; };
 		891E19151EFF8F3500295BAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 891E19131EFF8F3500295BAA /* Main.storyboard */; };
 		891E19171EFF8F3500295BAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 891E19161EFF8F3500295BAA /* Assets.xcassets */; };
 		891E191A1EFF8F3500295BAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 891E19181EFF8F3500295BAA /* LaunchScreen.storyboard */; };
 		891E19251EFF8F3500295BAA /* Shopping_ProTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E19241EFF8F3500295BAA /* Shopping_ProTests.swift */; };
 		891E19301EFF8F3500295BAA /* Shopping_ProUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E192F1EFF8F3500295BAA /* Shopping_ProUITests.swift */; };
 		891E193E1EFF91D800295BAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 891E193D1EFF91D800295BAA /* GoogleService-Info.plist */; };
+		891E19431EFF9D6300295BAA /* MyListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E19421EFF9D6300295BAA /* MyListVC.swift */; };
+		891E19451EFFA3AB00295BAA /* ShoppingItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E19441EFFA3AB00295BAA /* ShoppingItemVC.swift */; };
+		891E19471EFFA88D00295BAA /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E19461EFFA88D00295BAA /* ShoppingList.swift */; };
+		891E194A1EFFAADC00295BAA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E19491EFFAADC00295BAA /* Constants.swift */; };
+		891E194C1EFFAC7700295BAA /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E194B1EFFAC7700295BAA /* Utilities.swift */; };
+		891E194E1EFFD00900295BAA /* myListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E194D1EFFD00900295BAA /* myListCell.swift */; };
 		C96DC8C0CBA6B3EC44C1D2B6 /* Pods_Shopping_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B39E09A869A87552FEC57E /* Pods_Shopping_Pro.framework */; };
 		F14CB265C9B9E0FCC7ECE41C /* Pods_Shopping_ProUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E477C7789A795F290F400BC /* Pods_Shopping_ProUITests.framework */; };
 /* End PBXBuildFile section */
@@ -45,7 +50,6 @@
 		72AD768B21936AED1FB33BF1 /* Pods-Shopping ProTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping ProTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping ProTests/Pods-Shopping ProTests.release.xcconfig"; sourceTree = "<group>"; };
 		891E190C1EFF8F3500295BAA /* Shopping Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		891E190F1EFF8F3500295BAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		891E19111EFF8F3500295BAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		891E19141EFF8F3500295BAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		891E19161EFF8F3500295BAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		891E19191EFF8F3500295BAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +61,12 @@
 		891E192F1EFF8F3500295BAA /* Shopping_ProUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping_ProUITests.swift; sourceTree = "<group>"; };
 		891E19311EFF8F3500295BAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		891E193D1EFF91D800295BAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		891E19421EFF9D6300295BAA /* MyListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListVC.swift; sourceTree = "<group>"; };
+		891E19441EFFA3AB00295BAA /* ShoppingItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingItemVC.swift; sourceTree = "<group>"; };
+		891E19461EFFA88D00295BAA /* ShoppingList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
+		891E19491EFFAADC00295BAA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		891E194B1EFFAC7700295BAA /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		891E194D1EFFD00900295BAA /* myListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myListCell.swift; sourceTree = "<group>"; };
 		9991E283CC3DA5E8227235D5 /* Pods_Shopping_ProTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_ProTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E477C7789A795F290F400BC /* Pods_Shopping_ProUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_ProUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD79898B37BEECAF81E3F9A /* Pods-Shopping ProTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping ProTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping ProTests/Pods-Shopping ProTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				891E190F1EFF8F3500295BAA /* AppDelegate.swift */,
+				891E19481EFFAABD00295BAA /* Resources */,
 				891E19411EFF99E700295BAA /* Model */,
 				891E19401EFF99E400295BAA /* View */,
 				891E193F1EFF99E200295BAA /* Controller */,
@@ -150,7 +161,8 @@
 		891E193F1EFF99E200295BAA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				891E19111EFF8F3500295BAA /* ViewController.swift */,
+				891E19421EFF9D6300295BAA /* MyListVC.swift */,
+				891E19441EFFA3AB00295BAA /* ShoppingItemVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -158,6 +170,7 @@
 		891E19401EFF99E400295BAA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				891E194D1EFFD00900295BAA /* myListCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -165,8 +178,18 @@
 		891E19411EFF99E700295BAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				891E19461EFFA88D00295BAA /* ShoppingList.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		891E19481EFFAABD00295BAA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				891E19491EFFAADC00295BAA /* Constants.swift */,
+				891E194B1EFFAC7700295BAA /* Utilities.swift */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		B931A013E02F37BBDD1CC564 /* Frameworks */ = {
@@ -477,8 +500,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				891E19121EFF8F3500295BAA /* ViewController.swift in Sources */,
+				891E194C1EFFAC7700295BAA /* Utilities.swift in Sources */,
+				891E194A1EFFAADC00295BAA /* Constants.swift in Sources */,
+				891E19451EFFA3AB00295BAA /* ShoppingItemVC.swift in Sources */,
+				891E19471EFFA88D00295BAA /* ShoppingList.swift in Sources */,
+				891E19431EFF9D6300295BAA /* MyListVC.swift in Sources */,
 				891E19101EFF8F3500295BAA /* AppDelegate.swift in Sources */,
+				891E194E1EFFD00900295BAA /* myListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
