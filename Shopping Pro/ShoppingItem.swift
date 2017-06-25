@@ -142,7 +142,17 @@ class ShoppingItem {
     }
 
     
+    func updateItemInBackground(shoppingItem:ShoppingItem,completion: @escaping(_ error:Error?)->Void) {
+        
+        let ref = FIRDatabaseRef.child(kSHOPPINGITEM).child(shoppingItem.shoppingListId).child(shoppingItem.shoppingItemId)
+        
+        ref.setValue(convertDictionaryFromItems(shoppingitem: shoppingItem)) {
+            error,ref in
+            
+            completion(error)
+        }
     
     
-    
+    }
+
 }

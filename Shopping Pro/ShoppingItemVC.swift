@@ -8,21 +8,22 @@
 
 import UIKit
 import Firebase
+import SwipeCellKit
+import KRProgressHUD
 
-class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource,SwipeTableViewCellDelegate {
     
     
     var shoppingList:ShoppingList!
-    
     var unboughtItem = [ShoppingItem]()
     var boughtItem = [ShoppingItem]()
+    var defaultOptions = SwipeTableOptions()
+    var isSwipeRightEnabled = true
     
     
     
     @IBOutlet weak var myTableView: UITableView!
-    
     @IBOutlet weak var itemsLabel: UILabel!
-    
     @IBOutlet weak var totalPriceLabel: UILabel!
     
     
@@ -56,6 +57,10 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         if let cell = myTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? myItemCell {
             
+            
+            cell.delegate = self
+            cell.selectedBackgroundView = createSelectedBacgroundView()
+            
             var item:ShoppingItem!
             
             if indexPath.section == 0 {
@@ -68,6 +73,55 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         }else {
             return UITableViewCell()
         }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        var title1:String!
+        
+        if section == 0 {
+            title1 = "Unbought Items"
+        }else{
+            title1 = "Bought Items"
+        }
+        return headerForView(title1: title1)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 15
+    }
+    
+    
+    func headerForView(title1:String)->UIView {
+        
+        
+        let view = UIView()
+        
+        view.backgroundColor = UIColor.darkGray
+        
+        let titleLbl = UILabel(frame: CGRect(x: 10, y: 5, width: 200, height: 20))
+        
+        titleLbl.text = title1
+        
+        titleLbl.textColor = UIColor.white
+        
+        view.addSubview(titleLbl)
+        
+        return view
     }
     
     
@@ -104,4 +158,109 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         vc.shoppingList = self.shoppingList
         present(vc, animated: true, completion: nil)
     }
+    
+    
+    
+    //MARK: SwipeCelldelegateFunctions
+    
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        var item:ShoppingItem!
+        
+        if indexPath.section == 0 {
+            item = unboughtItem[indexPath.row]
+        }else{
+            item = boughtItem[indexPath.row]
+        }
+        
+        if orientation == .left {
+            guard isSwipeRightEnabled else {
+                return nil
+            }
+            
+             let buyItem = SwipeAction(style: .default, title: nil) { action, indexPath in
+            
+            item.isBought = !item.isBought
+            item.updateItemInBackground(shoppingItem: item, completion: { (error) in
+                if error != nil {
+                    KRProgressHUD.showError(withMessage: "Error occured while saving")
+                }
+            })
+            
+            if indexPath.section == 0 {
+                self.unboughtItem.remove(at: indexPath.row)
+                self.boughtItem.append(item)
+            }else{
+                self.unboughtItem.append(item)
+                self.boughtItem.remove(at: indexPath.row)
+            }
+         self.myTableView.reloadData()
+        }
+            
+            buyItem.accessibilityLabel = item.isBought ? "Buy" : "Return"
+            let descriptor: ActionDescriptor = item.isBought ?.returnPurchase : .buy
+            
+            configure(action: buyItem, with: descriptor)
+            
+            return [buyItem]
+        } else {
+            
+            let delete = SwipeAction(style: .destructive, title: nil, handler: { (action, indexPath) in
+                
+                
+                if indexPath.section == 0 {
+                    self.unboughtItem.remove(at: indexPath.row)
+                }else{
+                    self.boughtItem.remove(at: indexPath.row)
+                }
+                
+                item.deleteItemInBackgroud(shoppingItem: item)
+                
+                self.myTableView.beginUpdates()
+                action.fulfill(with: .delete)
+                self.myTableView.endUpdates()
+            })
+            
+            
+            configure(action: delete, with: .trash)
+            
+            return [delete]
+        }
+    }
+    
+    
+    func configure(action: SwipeAction, with descriptor: ActionDescriptor) {
+        
+        action.title = descriptor.title()
+        action.image = descriptor.image()
+        action.backgroundColor = descriptor.color
+    }
+
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        
+        var options = SwipeTableOptions()
+        options.expansionStyle = orientation == .left ? .selection : .destructive
+        options.transitionStyle = defaultOptions.transitionStyle
+        options.buttonSpacing = 11
+        return options
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?, for orientation: SwipeActionsOrientation) {
+        
+    }
+    
+    
+    
+    
+    
+    
+    
 }
