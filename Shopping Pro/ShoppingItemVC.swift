@@ -19,7 +19,7 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     var boughtItem = [ShoppingItem]()
     var defaultOptions = SwipeTableOptions()
     var isSwipeRightEnabled = true
-    
+    var totaPrice:Float = 0
     
     
     @IBOutlet weak var myTableView: UITableView!
@@ -73,6 +73,22 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         }else {
             return UITableViewCell()
         }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddItemVC") as! AddItemVC
+        vc.shoppingList = self.shoppingList
+        
+        if indexPath.section == 0 {
+            vc.shoppingItem = unboughtItem[indexPath.row]
+        }else{
+            vc.shoppingItem = boughtItem[indexPath.row]
+        }
+        
+        present(vc, animated: true, completion: nil)
     }
     
     
@@ -146,9 +162,47 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
                 
             }
-            self.myTableView.reloadData()
+            self.calculateTotal()
+            self.updateUI()
         }
     }
+    
+    func updateUI() {
+        
+        self.itemsLabel.text = "Items Left: \(self.unboughtItem.count)"
+        totalPriceLabel.text = "Total Price: $\(String(format: "%.2f", totaPrice))"
+        
+        self.myTableView.reloadData()
+        
+        
+    }
+    
+    
+    
+    
+    func calculateTotal() {
+        totaPrice = 0
+        for item in unboughtItem {
+            totaPrice += item.price
+        }
+        for item in boughtItem {
+            totaPrice += item.price
+        }
+        shoppingList.totalPrice = self.totaPrice
+        shoppingList.totalItems = unboughtItem.count + boughtItem.count
+        
+        shoppingList.updateItemInBackground(shoppingList: shoppingList) { (error:Error?) in
+            if error != nil {
+                KRProgressHUD.showError(withMessage: "Error occured while saving")
+                return
+            }
+        }
+    }
+    
+    
+    
+    
+    
     
     //MARK: IBActions
     
@@ -224,6 +278,7 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             
             configure(action: delete, with: .trash)
+            
             
             return [delete]
         }

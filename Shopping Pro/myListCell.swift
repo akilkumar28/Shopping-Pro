@@ -29,7 +29,7 @@ class myListCell: UITableViewCell {
         }
         
         self.itemsTxtField.text = "\(shoppingList.totalItems)"+" "+name
-        self.totalTxtField.text = "Totoal is \(shoppingList.totalPrice)"
+        self.totalTxtField.text = "Totoal is $\(String(format: "%.2f", shoppingList.totalPrice))"
         
         let newDateFormatter = dateFormatter()
         newDateFormatter.dateFormat = "dd/MM/YYYY"

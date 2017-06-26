@@ -26,7 +26,8 @@ class myItemCell: SwipeTableViewCell {
         self.nameTxtFld.text = item.name
         self.descTxtFld.text = item.info
         self.quantityTxtFld.text = item.quantity
-        self.priceTxtFld.text = "$\(item.price)"
+        self.priceTxtFld.text = "$\(String(format: "%.2f",item.price))"
+        
         
         
         self.nameTxtFld.sizeToFit()
@@ -35,9 +36,23 @@ class myItemCell: SwipeTableViewCell {
         
         
         
-        //TODO : later add for image
+        
+        if item.image != "" {
+          
+            imageFromData(imageData: item.image, withBlock: { (image:UIImage?) in
+            //    print("######",Thread.isMainThread)
+                
+                if let newImage = image?.scaleImageToSize(newSize: itemImageView.frame.size) {
+                    self.itemImageView.image = newImage.circleMasked
+                }
+            })
+        
+        
+        }else {
+            let newImage = UIImage(named: "ShoppingCartEmpty")!.scaleImageToSize(newSize: itemImageView.frame.size)
+                self.itemImageView.image = newImage.circleMasked
+        }
+    
     }
-    
-    
     
 }

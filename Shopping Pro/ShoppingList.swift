@@ -121,4 +121,14 @@ class ShoppingList {
         reference.removeValue()
     }
     
+    
+    func updateItemInBackground(shoppingList:ShoppingList,completion: @escaping(_ error:Error?)->Void) {
+        
+        let reference = FIRDatabaseRef.child(kSHOPPINGLIST).child("1234").child(shoppingList.id)
+        reference.setValue(convertDictionaryFromItems(shoppingList: shoppingList)) {
+            error,ref in
+            completion(error)
+        }
+    }
+    
 }

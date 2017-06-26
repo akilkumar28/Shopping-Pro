@@ -25,6 +25,7 @@
 		891E19521EFFEA0500295BAA /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E19511EFFEA0500295BAA /* AddItemVC.swift */; };
 		891E19541EFFF6BE00295BAA /* myItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E19531EFFF6BE00295BAA /* myItemCell.swift */; };
 		891E19561F000C0300295BAA /* SwipeTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E19551F000C0300295BAA /* SwipeTableViewHelper.swift */; };
+		891E19581F00EE2E00295BAA /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E19571F00EE2E00295BAA /* Camera.swift */; };
 		C96DC8C0CBA6B3EC44C1D2B6 /* Pods_Shopping_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B39E09A869A87552FEC57E /* Pods_Shopping_Pro.framework */; };
 		F14CB265C9B9E0FCC7ECE41C /* Pods_Shopping_ProUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E477C7789A795F290F400BC /* Pods_Shopping_ProUITests.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		891E19511EFFEA0500295BAA /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
 		891E19531EFFF6BE00295BAA /* myItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myItemCell.swift; sourceTree = "<group>"; };
 		891E19551F000C0300295BAA /* SwipeTableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTableViewHelper.swift; sourceTree = "<group>"; };
+		891E19571F00EE2E00295BAA /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		9991E283CC3DA5E8227235D5 /* Pods_Shopping_ProTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_ProTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E477C7789A795F290F400BC /* Pods_Shopping_ProUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_ProUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD79898B37BEECAF81E3F9A /* Pods-Shopping ProTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping ProTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping ProTests/Pods-Shopping ProTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				891E19491EFFAADC00295BAA /* Constants.swift */,
 				891E194B1EFFAC7700295BAA /* Utilities.swift */,
 				891E19551F000C0300295BAA /* SwipeTableViewHelper.swift */,
+				891E19571F00EE2E00295BAA /* Camera.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				891E19501EFFDD5200295BAA /* ShoppingItem.swift in Sources */,
 				891E19431EFF9D6300295BAA /* MyListVC.swift in Sources */,
 				891E19541EFFF6BE00295BAA /* myItemCell.swift in Sources */,
+				891E19581F00EE2E00295BAA /* Camera.swift in Sources */,
 				891E19101EFF8F3500295BAA /* AppDelegate.swift in Sources */,
 				891E19521EFFEA0500295BAA /* AddItemVC.swift in Sources */,
 				891E194E1EFFD00900295BAA /* myListCell.swift in Sources */,
