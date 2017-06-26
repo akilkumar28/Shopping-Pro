@@ -16,7 +16,6 @@ class myItemCell: SwipeTableViewCell {
     @IBOutlet weak var descTxtFld: UILabel!
     @IBOutlet weak var quantityTxtFld: UILabel!
     @IBOutlet weak var priceTxtFld: UILabel!
-    
     @IBOutlet weak var quantityView: UIView!
     
     
