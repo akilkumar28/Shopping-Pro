@@ -16,6 +16,8 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     var shoppingList:ShoppingList!
     var shoppingItem:ShoppingItem?
     var itemImage:UIImage?
+    var addItemToList: Bool?
+    var groceryItem:GroceryItem?
     
     
     @IBOutlet weak var itemImageView: UIImageView!
@@ -37,7 +39,7 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         let image = UIImage(named: "ShoppingCartEmpty")!.scaleImageToSize(newSize: itemImageView.frame.size)
         itemImageView.image = image.circleMasked
         
-        if shoppingItem != nil {
+        if shoppingItem != nil || groceryItem != nil {
             
             updateUI()
             
@@ -63,8 +65,23 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
                     
                 })
             }
-        }else{
+        }else if groceryItem != nil {
             // grocery item
+            
+            self.nameTxtFld.text = groceryItem!.name
+            self.extranInfoTxtFld.text = groceryItem!.info
+            self.priceTxtFld.text = "\(groceryItem!.price)"
+            
+            if groceryItem!.image != "" {
+                
+                imageFromData(imageData: groceryItem!.image, withBlock: { (image:UIImage?) in
+                    self.itemImage = image!
+                    let newImage = image!.scaleImageToSize(newSize: self.itemImageView.frame.size)
+                    self.itemImageView.image = newImage.circleMasked
+                    
+                })
+            }
+            
         }
         
     }
@@ -97,8 +114,20 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
                     return
                 }
             })
-        }else{
+        }else if groceryItem != nil{
             //grocery item
+            groceryItem!.name = nameTxtFld.text!
+            groceryItem!.price = Float(priceTxtFld.text!)!
+            groceryItem!.info = extranInfoTxtFld.text!
+            groceryItem!.image = imageData
+            
+            groceryItem!.updateItemInBackground(groceryItem: groceryItem!, completion: { (error) in
+                if error != nil {
+                    KRProgressHUD.showError(withMessage: "Error while updating the item")
+                    return
+                }
+            })
+
         }
         
         
@@ -110,7 +139,7 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         
         if !(nameTxtFld.text?.isEmpty)! && !(priceTxtFld.text?.isEmpty)! {
             
-            if shoppingItem != nil {
+            if shoppingItem != nil || groceryItem != nil {
                 //edit item
                 self.updateItem()
             }else{
@@ -141,15 +170,37 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             imageData = ""
         }
         
-        let shoppingItem = ShoppingItem(name: nameTxtFld.text!, info: extranInfoTxtFld.text!, quantity: quantityTxtFld.text!, price:Float(priceTxtFld.text!)!, shoppingListId: shoppingList.id)
-        shoppingItem.image = imageData
-        
-        shoppingItem.saveItemsInBackground(shoppingItem: shoppingItem) { (error) in
-            if error != nil {
-                KRProgressHUD.showError(withMessage: "Error while saving the item")
-                return
+        if addItemToList! {
+            // grocery item
+            
+            let groceryItem = GroceryItem(name: nameTxtFld.text!, info: extranInfoTxtFld.text!, price: Float(priceTxtFld.text!)!, image: imageData)
+            groceryItem.saveItemsInBackground(groceryItem: groceryItem, completion: { (error) in
+                if error != nil {
+                    KRProgressHUD.showError(withMessage: "Error while creating the item")
+                    return
+                }
+                self.dismiss(animated: true, completion: nil)
+            })
+            
+        }else{
+            
+            // shopping item
+            let shoppingItem = ShoppingItem(name: nameTxtFld.text!, info: extranInfoTxtFld.text!, quantity: quantityTxtFld.text!, price:Float(priceTxtFld.text!)!, shoppingListId: shoppingList.id)
+            shoppingItem.image = imageData
+            
+            shoppingItem.saveItemsInBackground(shoppingItem: shoppingItem) { (error) in
+                if error != nil {
+                    KRProgressHUD.showError(withMessage: "Error while saving the item")
+                    return
+                }
             }
+            showListNotification(shoppingItem:shoppingItem)
         }
+    }
+    
+    
+    func showListNotification(shoppingItem:ShoppingItem) {
+        
         
         
     }

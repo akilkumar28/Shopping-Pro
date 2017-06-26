@@ -11,7 +11,7 @@ import Firebase
 import SwipeCellKit
 import KRProgressHUD
 
-class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource,SwipeTableViewCellDelegate {
+class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource,SwipeTableViewCellDelegate,SearchVCDelegate {
     
     
     var shoppingList:ShoppingList!
@@ -220,7 +220,11 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
             
         }
         let searchItem = UIAlertAction(title: "Search an Item", style: .default) { (alert:UIAlertAction) in
-            // show photo library
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+            vc.delegate = self
+            vc.clickToEdit = false
+            self.present(vc, animated: true, completion: nil)
+            
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (alert:UIAlertAction) in
         }
@@ -331,10 +335,14 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
-    
-    
-    
-    
-    
-    
+    func didChooseItem(item: GroceryItem) {
+        
+        let shoppingItem = ShoppingItem(groceryItem: item)
+        shoppingItem.shoppingListId = self.shoppingList.id
+        shoppingItem.saveItemsInBackground(shoppingItem: shoppingItem) { (error:Error?) in
+            if error != nil {
+                KRProgressHUD.showError(withMessage: "Error occured while loading your item")
+            }
+        }
+    }
 }
