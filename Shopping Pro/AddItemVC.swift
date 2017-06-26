@@ -57,6 +57,7 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             if shoppingItem!.image != "" {
                 
                 imageFromData(imageData: shoppingItem!.image, withBlock: { (image:UIImage?) in
+                    self.itemImage = image!
                     let newImage = image!.scaleImageToSize(newSize: self.itemImageView.frame.size)
                     self.itemImageView.image = newImage.circleMasked
                     
@@ -68,12 +69,53 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         
     }
     
+    func updateItem() {
+        
+        var imageData:String!
+        
+        if itemImage != nil {
+            
+            let image = UIImageJPEGRepresentation(itemImage!, 0.5)
+            imageData = image?.base64EncodedString(options: .init(rawValue: 0))
+            
+            
+        }else{
+            imageData = ""
+        }
+        
+        if shoppingItem != nil {
+            
+            shoppingItem!.name = nameTxtFld.text!
+            shoppingItem!.price = Float(priceTxtFld.text!)!
+            shoppingItem!.quantity = quantityTxtFld.text!
+            shoppingItem!.info = extranInfoTxtFld.text!
+            shoppingItem!.image = imageData
+            
+            shoppingItem!.updateItemInBackground(shoppingItem: shoppingItem!, completion: { (error:Error?) in
+                if error != nil {
+                    KRProgressHUD.showError(withMessage: "Error while updating the item")
+                    return
+                }
+            })
+        }else{
+            //grocery item
+        }
+        
+        
+    }
+    
     
     
     @IBAction func saveBtnTapped(_ sender: Any) {
         
         if !(nameTxtFld.text?.isEmpty)! && !(priceTxtFld.text?.isEmpty)! {
-            saveItem()
+            
+            if shoppingItem != nil {
+                //edit item
+                self.updateItem()
+            }else{
+                saveItem()
+            }
         }else{
             KRProgressHUD.showWarning(withMessage: "Empty Fields!")
         }

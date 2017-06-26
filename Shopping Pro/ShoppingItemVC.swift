@@ -208,9 +208,28 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     @IBAction func addBarBtnPrssd(_ sender: Any) {
         
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddItemVC") as! AddItemVC
-        vc.shoppingList = self.shoppingList
-        present(vc, animated: true, completion: nil)
+        
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let addItem = UIAlertAction(title: "Add a new Item", style: .default) { (alert:UIAlertAction) in
+            //show camera
+            
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddItemVC") as! AddItemVC
+            vc.shoppingList = self.shoppingList
+            self.present(vc, animated: true, completion: nil)
+            
+        }
+        let searchItem = UIAlertAction(title: "Search an Item", style: .default) { (alert:UIAlertAction) in
+            // show photo library
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (alert:UIAlertAction) in
+        }
+        
+        optionMenu.addAction(addItem)
+        optionMenu.addAction(searchItem)
+        optionMenu.addAction(cancel)
+        
+        present(optionMenu, animated: true, completion: nil)
     }
     
     

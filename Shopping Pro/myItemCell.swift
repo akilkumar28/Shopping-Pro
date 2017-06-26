@@ -17,6 +17,17 @@ class myItemCell: SwipeTableViewCell {
     @IBOutlet weak var quantityTxtFld: UILabel!
     @IBOutlet weak var priceTxtFld: UILabel!
     
+    @IBOutlet weak var quantityView: UIView!
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.quantityView.layer.cornerRadius = self.quantityView.frame.width / 2
+        self.quantityView.layer.borderWidth = 3
+        self.quantityView.layer.borderColor = UIColor.darkGray.cgColor
+        
+    }
     
     
     
