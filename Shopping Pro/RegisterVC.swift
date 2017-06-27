@@ -36,6 +36,14 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         viewHoldingRegisterOutlet.layer.cornerRadius = 8
     }
+    
+    func reset() {
+        self.emailTxtFld.text = nil
+        self.passwordTxtFld.text = nil
+        self.firstNameTxtFld.text = nil
+        self.lastNameTxtFld.text = nil
+        self.view.endEditing(true)
+    }
 
     @IBAction func registerTapped(_ sender: Any) {
         if !(emailTxtFld.text?.isEmpty)! && !(passwordTxtFld.text?.isEmpty)! && !(firstNameTxtFld.text?.isEmpty)! && !(lastNameTxtFld.text?.isEmpty)! {
@@ -46,15 +54,11 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
                 
                 if error != nil {
                     KRProgressHUD.showError(withMessage: "Error occured while registering")
+                    self.reset()
                     return
-                }else{
-                    self.goToApp()
                 }
-                self.emailTxtFld.text = nil
-                self.passwordTxtFld.text = nil
-                self.firstNameTxtFld.text = nil
-                self.lastNameTxtFld.text = nil
-                self.view.endEditing(true)
+                self.goToApp()
+                self.reset()
                 
             })
             

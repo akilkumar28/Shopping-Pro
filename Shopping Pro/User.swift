@@ -116,6 +116,7 @@ class FUser {
     
     class func registerUserWith(email:String,password:String,firstName:String,lastName:String,completion:@escaping (_ error:Error?)->Void) {
         
+        
         Auth.auth().createUser(withEmail: email, password: password) { (user:User?, error:Error?) in
             
             if error != nil {

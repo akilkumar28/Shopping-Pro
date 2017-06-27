@@ -35,6 +35,13 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         KRProgressHUD.dismiss()
     }
     
+    func reset() {
+        self.emailTxtFld.text = nil
+        self.passwordTxtFld.text = nil
+        self.view.endEditing(true)
+        
+    }
+    
     
     @IBAction func logInClicked(_ sender: Any) {
         
@@ -45,16 +52,16 @@ class LogInVC: UIViewController,UITextFieldDelegate {
             FUser.logInUserWith(email: emailTxtFld.text!, password: passwordTxtFld.text!, completion: { (error:Error?) in
                 if error != nil {
                     KRProgressHUD.showError(withMessage: "Error occured while logging In")
+                    self.reset()
                     return
                 }
-                self.emailTxtFld.text = nil
-                self.passwordTxtFld.text = nil
-                self.view.endEditing(true)
+                
                 
                 
                 //TODO: go to app
                 
                 self.goToApp()
+                self.reset()
             })
             
         } else {
