@@ -101,6 +101,17 @@ class ShoppingItem {
         self.image = ""
     }
     
+    init(groceryItem:GroceryItem) {
+        self.name = groceryItem.name
+        self.info = groceryItem.info
+        self.quantity = "1"
+        self.price = groceryItem.price
+        self.image = groceryItem.image
+        self.shoppingItemId = ""
+        self.shoppingListId = ""
+        self.isBought = false
+    }
+    
     
     
     init(dictionary:NSDictionary) {

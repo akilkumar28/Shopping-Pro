@@ -11,6 +11,7 @@ import Firebase
 
 
 var FIRDatabaseRef = Database.database().reference()
+let userDefaults = UserDefaults.standard
 
 
 

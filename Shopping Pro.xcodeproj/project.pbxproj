@@ -28,6 +28,11 @@
 		891E19581F00EE2E00295BAA /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E19571F00EE2E00295BAA /* Camera.swift */; };
 		891E195A1F011C7E00295BAA /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E19591F011C7E00295BAA /* SearchVC.swift */; };
 		891E195C1F011CFC00295BAA /* groceryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E195B1F011CFC00295BAA /* groceryCell.swift */; };
+		891E195E1F0120C300295BAA /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E195D1F0120C300295BAA /* GroceryItem.swift */; };
+		89DB7B601F0222320084E198 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DB7B5F1F0222320084E198 /* SettingsVC.swift */; };
+		89DB7B621F024C8B0084E198 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DB7B611F024C8B0084E198 /* LogInVC.swift */; };
+		89DB7B641F024CA40084E198 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DB7B631F024CA40084E198 /* RegisterVC.swift */; };
+		89DB7B661F0250870084E198 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DB7B651F0250870084E198 /* User.swift */; };
 		C96DC8C0CBA6B3EC44C1D2B6 /* Pods_Shopping_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B39E09A869A87552FEC57E /* Pods_Shopping_Pro.framework */; };
 		F14CB265C9B9E0FCC7ECE41C /* Pods_Shopping_ProUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E477C7789A795F290F400BC /* Pods_Shopping_ProUITests.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +86,11 @@
 		891E19571F00EE2E00295BAA /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		891E19591F011C7E00295BAA /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		891E195B1F011CFC00295BAA /* groceryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groceryCell.swift; sourceTree = "<group>"; };
+		891E195D1F0120C300295BAA /* GroceryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
+		89DB7B5F1F0222320084E198 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		89DB7B611F024C8B0084E198 /* LogInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
+		89DB7B631F024CA40084E198 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		89DB7B651F0250870084E198 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9991E283CC3DA5E8227235D5 /* Pods_Shopping_ProTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_ProTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E477C7789A795F290F400BC /* Pods_Shopping_ProUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_ProUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD79898B37BEECAF81E3F9A /* Pods-Shopping ProTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping ProTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping ProTests/Pods-Shopping ProTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +189,9 @@
 				891E19441EFFA3AB00295BAA /* ShoppingItemVC.swift */,
 				891E19511EFFEA0500295BAA /* AddItemVC.swift */,
 				891E19591F011C7E00295BAA /* SearchVC.swift */,
+				89DB7B5F1F0222320084E198 /* SettingsVC.swift */,
+				89DB7B611F024C8B0084E198 /* LogInVC.swift */,
+				89DB7B631F024CA40084E198 /* RegisterVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -198,6 +211,8 @@
 			children = (
 				891E19461EFFA88D00295BAA /* ShoppingList.swift */,
 				891E194F1EFFDD5200295BAA /* ShoppingItem.swift */,
+				891E195D1F0120C300295BAA /* GroceryItem.swift */,
+				89DB7B651F0250870084E198 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -526,6 +541,8 @@
 				891E194A1EFFAADC00295BAA /* Constants.swift in Sources */,
 				891E19451EFFA3AB00295BAA /* ShoppingItemVC.swift in Sources */,
 				891E19471EFFA88D00295BAA /* ShoppingList.swift in Sources */,
+				89DB7B601F0222320084E198 /* SettingsVC.swift in Sources */,
+				89DB7B621F024C8B0084E198 /* LogInVC.swift in Sources */,
 				891E195C1F011CFC00295BAA /* groceryCell.swift in Sources */,
 				891E19501EFFDD5200295BAA /* ShoppingItem.swift in Sources */,
 				891E19431EFF9D6300295BAA /* MyListVC.swift in Sources */,
@@ -534,7 +551,10 @@
 				891E19101EFF8F3500295BAA /* AppDelegate.swift in Sources */,
 				891E195A1F011C7E00295BAA /* SearchVC.swift in Sources */,
 				891E19521EFFEA0500295BAA /* AddItemVC.swift in Sources */,
+				89DB7B641F024CA40084E198 /* RegisterVC.swift in Sources */,
+				891E195E1F0120C300295BAA /* GroceryItem.swift in Sources */,
 				891E194E1EFFD00900295BAA /* myListCell.swift in Sources */,
+				89DB7B661F0250870084E198 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,6 +711,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6UPMA52VHK;
 				INFOPLIST_FILE = "Shopping Pro/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.asu.msse.athota1.Shopping-Pro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -705,6 +726,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6UPMA52VHK;
 				INFOPLIST_FILE = "Shopping Pro/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.asu.msse.athota1.Shopping-Pro";
 				PRODUCT_NAME = "$(TARGET_NAME)";

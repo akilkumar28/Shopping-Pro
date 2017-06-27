@@ -11,7 +11,7 @@ import Firebase
 import SwipeCellKit
 import KRProgressHUD
 
-class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource,SwipeTableViewCellDelegate {
+class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource,SwipeTableViewCellDelegate,SearchVCDelegate {
     
     
     var shoppingList:ShoppingList!
@@ -35,7 +35,7 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         loadItems()
     }
 
@@ -169,8 +169,10 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func updateUI() {
         
+        
+        let currency = userDefaults.value(forKey: kCURRENCY) as! String
         self.itemsLabel.text = "Items Left: \(self.unboughtItem.count)"
-        totalPriceLabel.text = "Total Price: $\(String(format: "%.2f", totaPrice))"
+        totalPriceLabel.text = "Total Price: \(currency)\(String(format: "%.2f", totaPrice))"
         
         self.myTableView.reloadData()
         
@@ -216,11 +218,16 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddItemVC") as! AddItemVC
             vc.shoppingList = self.shoppingList
+            vc.addItemToList = false
             self.present(vc, animated: true, completion: nil)
             
         }
         let searchItem = UIAlertAction(title: "Search an Item", style: .default) { (alert:UIAlertAction) in
-            // show photo library
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+            vc.delegate = self
+            vc.clickToEdit = false
+            self.present(vc, animated: true, completion: nil)
+            
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (alert:UIAlertAction) in
         }
@@ -331,10 +338,16 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
-    
-    
-    
-    
-    
-    
+    func didChooseItem(item: GroceryItem) {
+        
+        let shoppingItem = ShoppingItem(groceryItem: item)
+        shoppingItem.shoppingListId = self.shoppingList.id
+        shoppingItem.saveItemsInBackground(shoppingItem: shoppingItem) { (error:Error?) in
+            if error != nil {
+                KRProgressHUD.showError(withMessage: "Error occured while loading your item")
+            }
+            
+        }
+        dismiss(animated: true, completion: nil)
+    }
 }

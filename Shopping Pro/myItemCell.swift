@@ -32,11 +32,11 @@ class myItemCell: SwipeTableViewCell {
     
     
     func configureCell(item:ShoppingItem){
-        
+        let currency = userDefaults.value(forKey: kCURRENCY) as! String
         self.nameTxtFld.text = item.name
         self.descTxtFld.text = item.info
         self.quantityTxtFld.text = item.quantity
-        self.priceTxtFld.text = "$\(String(format: "%.2f",item.price))"
+        self.priceTxtFld.text = "\(currency)\(String(format: "%.2f",item.price))"
         
         
         

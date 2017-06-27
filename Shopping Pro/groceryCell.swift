@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class groceryCell: UITableViewCell {
+class groceryCell: SwipeTableViewCell {
 
     @IBOutlet weak var itemImageView: UIImageView!
     
@@ -29,11 +30,30 @@ class groceryCell: UITableViewCell {
     }
     
     
-    func configureCell(){
+    func configureCell(item:GroceryItem){
+        
+        let currency = userDefaults.value(forKey: kCURRENCY) as! String
+        self.nameLabel.text = item.name
+        self.detailLabel.text = item.info
+        self.priceLabel.text = "\(currency)\(String(format: "%.2f", item.price))"
+        
+        if item.image != "" {
+            
+            imageFromData(imageData: item.image, withBlock: { (image:UIImage?) in
+                //    print("######",Thread.isMainThread)
+                
+                if let newImage = image?.scaleImageToSize(newSize: itemImageView.frame.size) {
+                    self.itemImageView.image = newImage.circleMasked
+                }
+            })
+            
+            
+        }else {
+            let newImage = UIImage(named: "ShoppingCartEmpty")!.scaleImageToSize(newSize: itemImageView.frame.size)
+            self.itemImageView.image = newImage.circleMasked
+        }
         
     }
-    
-    
-    
-    
-}
+        
+    }
+
