@@ -165,5 +165,20 @@ class ShoppingItem {
     
     
     }
+    class func deleteAllShoppingItemsOfTheList(shoppingList: ShoppingList, completion: @escaping (_ success: Bool) -> Void) {
+        
+        FIRDatabaseRef.child(kSHOPPINGITEM).child(shoppingList.id).removeValue { (error, ref) in
+            
+            if error != nil {
+                print("Error deleting all shopping Items\(error!.localizedDescription)")
+                completion(false)
+                return
+            } else {
+                completion(true)
+            }
+            
+        }
+        
+    }
 
 }

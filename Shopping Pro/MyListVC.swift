@@ -4,20 +4,22 @@
 //
 //  Created by AKIL KUMAR THOTA on 6/25/17.
 //  Copyright © 2017 Akil Kumar Thota. All rights reserved.
-// auth != null
+// 
 
 import UIKit
 import KRProgressHUD
 import Firebase
+import SwipeCellKit
 
-
-class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+//add here
+class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource,SwipeTableViewCellDelegate {
     
     
     
     var myListArray = [ShoppingList]()
     var nametextField:UITextField!
-    
+    var defaultOptions = SwipeTableOptions()
+    var isSwipeRightEnabled = false
     
     
     
@@ -31,8 +33,10 @@ class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         loadList()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "back", style: .done, target: nil, action: nil)
-        
+
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         myTableView.reloadData()
@@ -53,6 +57,8 @@ class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = myTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? myListCell {
+            cell.delegate = self
+            cell.selectedBackgroundView = createSelectedBacgroundView()
             let currentList = myListArray[indexPath.row]
             cell.configureCell(shoppingList: currentList)
             return cell
@@ -121,7 +127,6 @@ class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             
             
         } else {
-            // TODO: Show some error
             KRProgressHUD.showWarning(withMessage: "Name is empty")
         }
         
@@ -152,5 +157,61 @@ class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             self.myTableView.reloadData()
         }
     }
+    
+    //MARK: Swipe Cell delegate functions
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        if orientation == .left {
+            guard isSwipeRightEnabled else { return nil }
+        }
+        
+        let delete = SwipeAction(style: .destructive, title: nil) { action, indexPath in
+            
+            
+            let item = self.myListArray[indexPath.row]
+            self.myListArray.remove(at: indexPath.row)
+            
+            ShoppingItem.deleteAllShoppingItemsOfTheList(shoppingList: item, completion: { (success) in
+                
+                if success {
+                    
+                    item.deleteItemInBackgroud(shoppingList: item)
+                    
+                }
+            })
+            
+            self.myTableView.beginUpdates()
+            action.fulfill(with: .delete)
+            self.myTableView.endUpdates()
+            
+        }
+        
+        configure(action: delete, with: .trash)
+        
+        return [delete]
+        
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        
+        var options = SwipeTableOptions()
+        options.expansionStyle = orientation == .left ? .selection : .destructive
+        options.transitionStyle = defaultOptions.transitionStyle
+        options.buttonSpacing = 11
+        
+        
+        return options
+    }
+    
+    func configure(action: SwipeAction, with descriptor: ActionDescriptor) {
+        action.title = descriptor.title()
+        action.image = descriptor.image()
+        action.backgroundColor = descriptor.color
+        
+    }
+
+    
+    
     
 }

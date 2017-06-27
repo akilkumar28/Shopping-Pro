@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class myListCell: UITableViewCell {
+class myListCell: SwipeTableViewCell {
 
     @IBOutlet weak var nameTxtField: UILabel!
     @IBOutlet weak var itemsTxtField: UILabel!
