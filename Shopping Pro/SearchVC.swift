@@ -113,7 +113,7 @@ class SearchVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
     
     func loadGroceryItems() {
         
-        FIRDatabaseRef.child(kGROCERYITEM).child("1234").observe(.value) { (snapshot:DataSnapshot) in
+        FIRDatabaseRef.child(kGROCERYITEM).child(FUser.currentId()).observe(.value) { (snapshot:DataSnapshot) in
             
             if snapshot.exists() {
                 self.groceryItemsArray.removeAll()

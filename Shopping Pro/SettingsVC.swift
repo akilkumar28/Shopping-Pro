@@ -97,6 +97,15 @@ class SettingsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,U
     @IBAction func logOutBtnPrssd(_ sender: Any) {
         
         
+        FUser.logOutUser { (success:Bool) in
+            if success {
+                cleanUpFirebaseObservers()
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") as! LogInVC
+                
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
+        
         
     }
 

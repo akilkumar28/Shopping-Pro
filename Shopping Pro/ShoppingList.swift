@@ -80,7 +80,7 @@ class ShoppingList {
         self.totalItems = 0
         self.id = id
         self.date = Date()
-        self.ownerId = "1234"
+        self.ownerId = FUser.currentId()
     }
     
     
@@ -102,7 +102,7 @@ class ShoppingList {
     
     func saveItemsInBackground(shoppingList:ShoppingList,completion: @escaping(_ error:Error?)->Void) {
         
-        let ref = FIRDatabaseRef.child(kSHOPPINGLIST).child("1234").childByAutoId()
+        let ref = FIRDatabaseRef.child(kSHOPPINGLIST).child(FUser.currentId()).childByAutoId()
         
         shoppingList.id = ref.key
         
@@ -116,7 +116,7 @@ class ShoppingList {
     
     func deleteItemInBackgroud(shoppingList:ShoppingList) {
         
-        let reference = FIRDatabaseRef.child(kSHOPPINGLIST).child("1234").child(shoppingList.id)
+        let reference = FIRDatabaseRef.child(kSHOPPINGLIST).child(FUser.currentId()).child(shoppingList.id)
         
         reference.removeValue()
     }
@@ -124,7 +124,7 @@ class ShoppingList {
     
     func updateItemInBackground(shoppingList:ShoppingList,completion: @escaping(_ error:Error?)->Void) {
         
-        let reference = FIRDatabaseRef.child(kSHOPPINGLIST).child("1234").child(shoppingList.id)
+        let reference = FIRDatabaseRef.child(kSHOPPINGLIST).child(FUser.currentId()).child(shoppingList.id)
         reference.setValue(convertDictionaryFromItems(shoppingList: shoppingList)) {
             error,ref in
             completion(error)

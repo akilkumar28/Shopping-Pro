@@ -75,7 +75,7 @@ class GroceryItem {
         self.info = info
         self.price = price
         self.image = image
-        self.ownerId = "1234"
+        self.ownerId = FUser.currentId()
         self.groceryItemId = ""
     }
     
@@ -84,7 +84,7 @@ class GroceryItem {
         self.name = shoppingItem.name
         self.info = shoppingItem.info
         self.price = shoppingItem.price
-        self.ownerId = "1234"
+        self.ownerId = FUser.currentId()
         self.image = shoppingItem.image
         self.groceryItemId = ""
         
@@ -107,7 +107,7 @@ class GroceryItem {
     
     func saveItemsInBackground(groceryItem:GroceryItem,completion: @escaping(_ error:Error?)->Void) {
         
-        let ref = FIRDatabaseRef.child(kGROCERYITEM).child("1234").childByAutoId()
+        let ref = FIRDatabaseRef.child(kGROCERYITEM).child(FUser.currentId()).childByAutoId()
         
         groceryItem.groceryItemId = ref.key
         
@@ -121,7 +121,7 @@ class GroceryItem {
     
     func deleteItemInBackgroud(groceryItem:GroceryItem) {
         
-        let reference = FIRDatabaseRef.child(kGROCERYITEM).child("1234").child(groceryItem.groceryItemId)
+        let reference = FIRDatabaseRef.child(kGROCERYITEM).child(FUser.currentId()).child(groceryItem.groceryItemId)
         
         reference.removeValue()
     }
@@ -129,7 +129,7 @@ class GroceryItem {
     
     func updateItemInBackground(groceryItem:GroceryItem,completion: @escaping(_ error:Error?)->Void) {
         
-        let ref = FIRDatabaseRef.child(kGROCERYITEM).child("1234").child(groceryItem.groceryItemId)
+        let ref = FIRDatabaseRef.child(kGROCERYITEM).child(FUser.currentId()).child(groceryItem.groceryItemId)
         
         ref.setValue(convertDictionaryFromItems(groceryItem:groceryItem)) {
             error,ref in

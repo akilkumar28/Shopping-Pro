@@ -13,7 +13,7 @@
         <!--Log InVC-->
         <scene sceneID="nYa-QY-lE3">
             <objects>
-                <viewController id="W3S-Rw-gJL" customClass="LogInVC" customModule="Shopping_Pro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeView" id="W3S-Rw-gJL" customClass="LogInVC" customModule="Shopping_Pro" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tuB-bT-zCS"/>
                         <viewControllerLayoutGuide type="bottom" id="pGX-So-BWG"/>
@@ -294,7 +294,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="cjK-Nf-dNt">
             <objects>
-                <tabBarController id="rXr-Pb-oTt" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainView" id="rXr-Pb-oTt" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="WCu-iX-tSG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

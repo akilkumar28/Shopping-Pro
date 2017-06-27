@@ -27,13 +27,14 @@ class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        KRProgressHUD.dismiss()
         loadList()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         myTableView.reloadData()
+        
     }
     
     
@@ -129,7 +130,7 @@ class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func loadList(){
         
-        FIRDatabaseRef.child(kSHOPPINGLIST).child("1234").observe(.value) {(snapshot:DataSnapshot) in
+        FIRDatabaseRef.child(kSHOPPINGLIST).child(FUser.currentId()).observe(.value) {(snapshot:DataSnapshot) in
             
             
             if snapshot.exists() {
