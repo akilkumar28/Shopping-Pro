@@ -32,6 +32,10 @@ class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        myTableView.reloadData()
+    }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

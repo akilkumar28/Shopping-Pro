@@ -35,7 +35,7 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         loadItems()
     }
 
@@ -169,8 +169,10 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func updateUI() {
         
+        
+        let currency = userDefaults.value(forKey: kCURRENCY) as! String
         self.itemsLabel.text = "Items Left: \(self.unboughtItem.count)"
-        totalPriceLabel.text = "Total Price: $\(String(format: "%.2f", totaPrice))"
+        totalPriceLabel.text = "Total Price: \(currency)\(String(format: "%.2f", totaPrice))"
         
         self.myTableView.reloadData()
         
@@ -216,6 +218,7 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddItemVC") as! AddItemVC
             vc.shoppingList = self.shoppingList
+            vc.addItemToList = false
             self.present(vc, animated: true, completion: nil)
             
         }

@@ -79,6 +79,17 @@ class GroceryItem {
         self.groceryItemId = ""
     }
     
+    init(shoppingItem: ShoppingItem) {
+        
+        self.name = shoppingItem.name
+        self.info = shoppingItem.info
+        self.price = shoppingItem.price
+        self.ownerId = "1234"
+        self.image = shoppingItem.image
+        self.groceryItemId = ""
+        
+    }
+    
     init(dictionary:NSDictionary) {
         self.name = dictionary[kNAME] as! String
         self.info = dictionary[kINFO] as! String

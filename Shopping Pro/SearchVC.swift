@@ -35,6 +35,9 @@ class SearchVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addBtnOutlet.isHidden = !clickToEdit
+        cancelBtn.isHidden = clickToEdit
+        
         //search bar delegate properties
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false

@@ -148,7 +148,6 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         }else{
             KRProgressHUD.showWarning(withMessage: "Empty Fields!")
         }
-        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func cancelBtnTapped(_ sender: Any) {
@@ -201,6 +200,26 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     
     func showListNotification(shoppingItem:ShoppingItem) {
         
+        let alertController = UIAlertController(title: "Add Items to list?", message: "Do you want to add this item to your most commonly used items?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { (action:UIAlertAction) in
+            
+            let groceryItem = GroceryItem(shoppingItem: shoppingItem)
+            
+            groceryItem.saveItemsInBackground(groceryItem: groceryItem, completion: { (error:Error?) in
+                if error != nil {
+                    KRProgressHUD.showError(withMessage: "Error occured while saving to your list")
+                }
+            })
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+        let noAction = UIAlertAction(title: "No", style: .cancel) { (action:UIAlertAction) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(yesAction)
+        alertController.addAction(noAction)
+        
+        present(alertController, animated: true, completion: nil)
         
         
     }
