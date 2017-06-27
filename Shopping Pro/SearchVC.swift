@@ -50,7 +50,7 @@ class SearchVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
 
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         loadGroceryItems()
     }
     

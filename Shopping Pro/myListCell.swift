@@ -32,7 +32,7 @@ class myListCell: UITableViewCell {
         self.totalTxtField.text = "Totoal is \(currency)\(String(format: "%.2f", shoppingList.totalPrice))"
         
         let newDateFormatter = dateFormatter()
-        newDateFormatter.dateFormat = "dd/MM/YYYY"
+        newDateFormatter.dateFormat = "dd-MM-YYYY"
         let date = newDateFormatter.string(from: shoppingList.date)
         
         self.dateTxtField.text = date

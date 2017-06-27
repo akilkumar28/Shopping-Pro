@@ -30,6 +30,8 @@ class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         KRProgressHUD.dismiss()
         loadList()
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "back", style: .done, target: nil, action: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
