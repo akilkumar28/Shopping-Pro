@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Database.database().isPersistenceEnabled = true
         
         
-        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
+        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.4257492554, green: 0.7296381597, blue: 1, alpha: 1)
         UINavigationBar.appearance().tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
         

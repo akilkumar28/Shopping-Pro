@@ -9,7 +9,7 @@
 import UIKit
 import KRProgressHUD
 
-class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
     
     
     
@@ -130,7 +130,7 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
 
         }
         
-        
+       self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -260,6 +260,19 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         
         picker.dismiss(animated: true, completion: nil)
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return false
     }
    
 

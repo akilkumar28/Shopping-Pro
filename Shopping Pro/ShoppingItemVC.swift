@@ -346,6 +346,8 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
             if error != nil {
                 KRProgressHUD.showError(withMessage: "Error occured while loading your item")
             }
+            
         }
+        dismiss(animated: true, completion: nil)
     }
 }

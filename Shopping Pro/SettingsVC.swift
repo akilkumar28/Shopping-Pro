@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class SettingsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
     
@@ -100,6 +101,7 @@ class SettingsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,U
         FUser.logOutUser { (success:Bool) in
             if success {
                 cleanUpFirebaseObservers()
+                KRProgressHUD.show(withMessage: "Signing Out...")
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") as! LogInVC
                 
                 self.present(vc, animated: true, completion: nil)

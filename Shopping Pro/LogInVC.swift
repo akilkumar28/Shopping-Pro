@@ -9,7 +9,7 @@
 import UIKit
 import KRProgressHUD
 
-class LogInVC: UIViewController {
+class LogInVC: UIViewController,UITextFieldDelegate {
 
     
     @IBOutlet weak var viewHoldingSignIn: UIView!
@@ -25,9 +25,14 @@ class LogInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTxtFld.delegate = self
+        passwordTxtFld.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
-        viewHoldingSignIn.layer.cornerRadius = 5
+        viewHoldingSignIn.layer.cornerRadius = 8
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        KRProgressHUD.dismiss()
     }
     
     
@@ -40,6 +45,7 @@ class LogInVC: UIViewController {
             FUser.logInUserWith(email: emailTxtFld.text!, password: passwordTxtFld.text!, completion: { (error:Error?) in
                 if error != nil {
                     KRProgressHUD.showError(withMessage: "Error occured while logging In")
+                    return
                 }
                 self.emailTxtFld.text = nil
                 self.passwordTxtFld.text = nil
@@ -74,6 +80,14 @@ class LogInVC: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return false
+    }
 
 }

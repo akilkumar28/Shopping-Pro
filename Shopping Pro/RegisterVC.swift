@@ -10,7 +10,7 @@ import UIKit
 import KRProgressHUD
 
 
-class RegisterVC: UIViewController {
+class RegisterVC: UIViewController,UITextFieldDelegate {
     
     
     @IBOutlet weak var viewHoldingRegisterOutlet: UIView!
@@ -34,7 +34,7 @@ class RegisterVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewHoldingRegisterOutlet.layer.cornerRadius = 5
+        viewHoldingRegisterOutlet.layer.cornerRadius = 8
     }
 
     @IBAction func registerTapped(_ sender: Any) {
@@ -77,6 +77,15 @@ class RegisterVC: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return false
     }
 
 }

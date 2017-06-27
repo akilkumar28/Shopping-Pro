@@ -99,7 +99,6 @@ class SearchVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
             // add to current shopping list
             
             delegate?.didChooseItem(item: item)
-            self.dismiss(animated: true, completion: nil)
             
         }else{
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddItemVC") as! AddItemVC
