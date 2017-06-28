@@ -4,14 +4,13 @@
 //
 //  Created by AKIL KUMAR THOTA on 6/25/17.
 //  Copyright © 2017 Akil Kumar Thota. All rights reserved.
-// 
+//
 
 import UIKit
 import KRProgressHUD
 import Firebase
 import SwipeCellKit
 
-//add here
 class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource,SwipeTableViewCellDelegate {
     
     
@@ -33,14 +32,13 @@ class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
         loadList()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "back", style: .done, target: nil, action: nil)
-
+        
     }
     
     
     
     override func viewWillAppear(_ animated: Bool) {
         myTableView.reloadData()
-        
     }
     
     
@@ -119,18 +117,15 @@ class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
             
             shoppingList.saveItemsInBackground(shoppingList: shoppingList, completion: { (error:Error?) in
                 if error != nil {
-                    KRProgressHUD.showError(withMessage: "Error in creating your list")
+                    DispatchQueue.main.async {
+                        KRProgressHUD.showError(withMessage: "Error in creating your list")
+                    }
                     return
                 }
             })
-            
-            
-            
         } else {
             KRProgressHUD.showWarning(withMessage: "Name is empty")
         }
-        
-        
     }
     
     
@@ -154,7 +149,9 @@ class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
             } else {
                 print("no snapshot")
             }
-            self.myTableView.reloadData()
+            DispatchQueue.main.async {
+                self.myTableView.reloadData()
+            }
         }
     }
     
@@ -180,26 +177,21 @@ class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
                     
                 }
             })
-            
-            self.myTableView.beginUpdates()
-            action.fulfill(with: .delete)
-            self.myTableView.endUpdates()
-            
+            DispatchQueue.main.async {
+                self.myTableView.beginUpdates()
+                action.fulfill(with: .delete)
+                self.myTableView.endUpdates()
+            }
         }
-        
         configure(action: delete, with: .trash)
-        
         return [delete]
-        
     }
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
-        
         var options = SwipeTableOptions()
         options.expansionStyle = orientation == .left ? .selection : .destructive
         options.transitionStyle = defaultOptions.transitionStyle
         options.buttonSpacing = 11
-        
         
         return options
     }
@@ -210,8 +202,5 @@ class MyListVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
         action.backgroundColor = descriptor.color
         
     }
-
-    
-    
     
 }

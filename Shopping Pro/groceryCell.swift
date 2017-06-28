@@ -10,7 +10,7 @@ import UIKit
 import SwipeCellKit
 
 class groceryCell: SwipeTableViewCell {
-
+    
     @IBOutlet weak var itemImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -39,21 +39,19 @@ class groceryCell: SwipeTableViewCell {
         
         if item.image != "" {
             
-            imageFromData(imageData: item.image, withBlock: { (image:UIImage?) in
-                //    print("######",Thread.isMainThread)
-                
+            imageFromData(imageData: item.image, withBlock: { (image:UIImage?) in                
                 if let newImage = image?.scaleImageToSize(newSize: itemImageView.frame.size) {
-                    self.itemImageView.image = newImage.circleMasked
+                    DispatchQueue.main.async {
+                        self.itemImageView.image = newImage.circleMasked
+                    }
                 }
             })
-            
-            
         }else {
-            let newImage = UIImage(named: "ShoppingCartEmpty")!.scaleImageToSize(newSize: itemImageView.frame.size)
+            let newImage = UIImage(named: "placeholder imageView")!.scaleImageToSize(newSize: itemImageView.frame.size)
             self.itemImageView.image = newImage.circleMasked
         }
         
     }
-        
-    }
+    
+}
 

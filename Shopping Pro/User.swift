@@ -132,7 +132,7 @@ class FUser {
                     saveUserlocally(user: fUser)
                     // saving to firebase also
                     saveUserToFirebase(user: fUser)
-                
+                    
                     completion(error)
                 }
             }
@@ -157,7 +157,7 @@ class FUser {
         
         
     }
-
+    
 }
 
 
@@ -209,9 +209,13 @@ func resetUserPassword(email:String) {
     
     Auth.auth().sendPasswordReset(withEmail: email) { (error:Error?) in
         if error != nil {
-            KRProgressHUD.showError(withMessage: "Error reseting password")
+            DispatchQueue.main.async {
+                KRProgressHUD.showError(withMessage: "Error reseting password")
+            }
         }else{
-            KRProgressHUD.showSuccess(withMessage: "Password reset email sent")
+            DispatchQueue.main.async {
+                KRProgressHUD.showSuccess(withMessage: "Password reset email sent")
+            }
         }
     }
 }

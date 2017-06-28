@@ -26,7 +26,7 @@ func imageFromData(imageData:String, withBlock:(_ image:UIImage?)->Void){
     var image :UIImage?
     
     let decodedData = Data(base64Encoded: imageData, options: .init(rawValue: 0))
-
+    
     image = UIImage(data: decodedData!)
     
     withBlock(image)
@@ -77,9 +77,5 @@ extension UIImage {
         
         
     }
-    
-    
-    
-    
     
 }

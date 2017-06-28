@@ -13,24 +13,17 @@ import Firebase
 class RegisterVC: UIViewController,UITextFieldDelegate {
     
     
-    @IBOutlet weak var viewHoldingRegisterOutlet: UIView!
-    @IBOutlet weak var emailTxtFld: UITextField!
-    
-    @IBOutlet weak var passwordTxtFld: UITextField!
-
-    @IBOutlet weak var firstNameTxtFld: UITextField!
-    
-    @IBOutlet weak var lastNameTxtFld: UITextField!
-    
-    @IBOutlet weak var registerBtnOutlet: UIButton!
-    
-    
+    @IBOutlet weak var viewHoldingRegisterOutlet: FancyView!
+    @IBOutlet weak var emailTxtFld: FancyTextField!
+    @IBOutlet weak var passwordTxtFld: FancyTextField!
+    @IBOutlet weak var firstNameTxtFld: FancyTextField!
+    @IBOutlet weak var lastNameTxtFld: FancyTextField!
+    @IBOutlet weak var registerBtnOutlet: FancyButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
+        registerBtnOutlet.generalButn()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +37,7 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
         self.lastNameTxtFld.text = nil
         self.view.endEditing(true)
     }
-
+    
     @IBAction func registerTapped(_ sender: Any) {
         if !(emailTxtFld.text?.isEmpty)! && !(passwordTxtFld.text?.isEmpty)! && !(firstNameTxtFld.text?.isEmpty)! && !(lastNameTxtFld.text?.isEmpty)! {
             
@@ -53,29 +46,32 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
             FUser.registerUserWith(email: emailTxtFld.text!, password: passwordTxtFld.text!, firstName: firstNameTxtFld.text!, lastName: lastNameTxtFld.text!, completion: { (error:Error?) in
                 
                 if error != nil {
-                    KRProgressHUD.showError(withMessage: "Error occured while registering")
-                    self.reset()
+                    DispatchQueue.main.async {
+                        KRProgressHUD.showMessage(error!.localizedDescription)
+                        self.reset()
+                    }
                     return
                 }
-//                self.goToApp()
-//                self.reset()
                 Auth.auth().currentUser?.sendEmailVerification(completion: { (error:Error?) in
+                    var message:String!
                     if error != nil {
-                        KRProgressHUD.showError(withMessage: "Error in sending email verification link")
-                    }else{
+                        message = error!.localizedDescription
                         
-                        KRProgressHUD.show(withMessage: "Please verify your email")
+                    }else{
+                        message = "Please verify your email"
+                    }
+                    DispatchQueue.main.async {
+                        KRProgressHUD.showWarning(withMessage: message)
                     }
                 })
                 NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "reveal")))
                 self.dismiss(animated: true, completion: nil)
             })
-            
         }else{
             KRProgressHUD.showError(withMessage: "Empty Fields")
         }
     }
-  
+    
     @IBAction func alreadyHaveAnAccountBtnTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -100,5 +96,4 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
         }
         return false
     }
-
 }

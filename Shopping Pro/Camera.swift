@@ -58,8 +58,7 @@ class Camera {
         
         imagePicker.allowsEditing = canEdit
         imagePicker.delegate = delegate
-        target.present(imagePicker, animated: true, completion: nil) // presents the imagepicker to the user
-        
+        target.present(imagePicker, animated: true, completion: nil)
         return
     }
     
@@ -100,7 +99,7 @@ class Camera {
         imagePicker.allowsEditing = canEdit
         imagePicker.showsCameraControls = true
         imagePicker.delegate = delegate
-        target.present(imagePicker, animated: true, completion: nil) // presents the imagepicker to the user
+        target.present(imagePicker, animated: true, completion: nil)
     }
     
 }

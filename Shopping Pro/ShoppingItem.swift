@@ -151,7 +151,7 @@ class ShoppingItem {
         
         reference.removeValue()
     }
-
+    
     
     func updateItemInBackground(shoppingItem:ShoppingItem,completion: @escaping(_ error:Error?)->Void) {
         
@@ -162,8 +162,8 @@ class ShoppingItem {
             
             completion(error)
         }
-    
-    
+        
+        
     }
     class func deleteAllShoppingItemsOfTheList(shoppingList: ShoppingList, completion: @escaping (_ success: Bool) -> Void) {
         
@@ -180,5 +180,5 @@ class ShoppingItem {
         }
         
     }
-
+    
 }
