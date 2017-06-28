@@ -12,6 +12,7 @@ target 'Shopping Pro' do
   pod 'Firebase/Auth'
   pod 'SwipeCellKit'
   pod 'KRProgressHUD'
+  pod 'GoogleSignIn'
   
   # Pods for Shopping Pro
 

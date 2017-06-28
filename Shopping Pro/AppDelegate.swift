@@ -8,9 +8,11 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+import KRProgressHUD
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 
     var window: UIWindow?
     var firstLoad:Bool?
@@ -19,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
         Database.database().isPersistenceEnabled = true
         
         
@@ -37,6 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         self.goToApp()                        
                     }
                     
+                }else if userDefaults.object(forKey: "google") as! Bool == true {
+                    if userDefaults.object(forKey: kCURRENTUSER) != nil {
+                        self.goToApp()
+                    }
                 }
             }
         }
@@ -51,10 +59,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !firstLoad! {
             userDefaults.set(true, forKey: kFIRSTRUN)
             userDefaults.set("$", forKey: kCURRENCY)
+            userDefaults.set(false, forKey: "google")
             userDefaults.synchronize()
         }
         
     }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let err = error {
+            KRProgressHUD.showError(withMessage: err.localizedDescription)
+        }else{
+            
+            guard let idToken = user.authentication.idToken else {return}
+            guard let accessToken = user.authentication.accessToken else {return}
+            let credentials = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+            Auth.auth().signIn(with: credentials, completion: { (user:User?, error:Error?) in
+                
+                if let err = error {
+                    KRProgressHUD.showError(withMessage: err.localizedDescription)
+                    return
+                }
+                if let user = user {
+                    
+                    let name = user.displayName ?? ""
+                    
+                    let fUser = FUser(objectId: user.uid, createdAt: Date(), email: user.email!, firstName: name, lastName: "")
+                    userDefaults.set(true, forKey: "google")
+                    userDefaults.synchronize()
+                    // saving to user defaults
+                    saveUserlocally(user: fUser)
+                    // saving to firebase also
+                    saveUserToFirebase(user: fUser)
+                    self.goToApp()
+                }
+                
+            })
+        }
+    }
+    
+    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
+        -> Bool {
+            return GIDSignIn.sharedInstance().handle(url,
+                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                     annotation: [:])
+    }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

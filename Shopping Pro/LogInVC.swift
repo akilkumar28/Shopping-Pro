@@ -9,10 +9,13 @@
 import UIKit
 import KRProgressHUD
 import Firebase
+import GoogleSignIn
 
-class LogInVC: UIViewController,UITextFieldDelegate {
+
+class LogInVC: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate {
 
     @IBOutlet weak var verifyStackView: UIStackView!
+    @IBOutlet weak var googleButton: GIDSignInButton!
     
     @IBOutlet weak var viewHoldingSignIn: UIView!
     @IBOutlet weak var emailTxtFld: UITextField!
@@ -29,6 +32,8 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         emailTxtFld.delegate = self
         passwordTxtFld.delegate = self
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(reveal), name: NSNotification.Name(rawValue: "reveal"), object: nil)
     }
