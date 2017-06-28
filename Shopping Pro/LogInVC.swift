@@ -12,6 +12,7 @@ import Firebase
 
 class LogInVC: UIViewController,UITextFieldDelegate {
 
+    @IBOutlet weak var verifyStackView: UIStackView!
     
     @IBOutlet weak var viewHoldingSignIn: UIView!
     @IBOutlet weak var emailTxtFld: UITextField!
@@ -28,14 +29,27 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         emailTxtFld.delegate = self
         passwordTxtFld.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reveal), name: NSNotification.Name(rawValue: "reveal"), object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
+        verifyStackView.isHidden = true
         viewHoldingSignIn.layer.cornerRadius = 8
     }
     override func viewDidAppear(_ animated: Bool) {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             KRProgressHUD.dismiss()
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func reveal(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.verifyStackView.isHidden = false
         }
     }
     
@@ -69,8 +83,10 @@ class LogInVC: UIViewController,UITextFieldDelegate {
                     KRProgressHUD.show(withMessage: "Please verify your email", completion: { 
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { 
                             KRProgressHUD.dismiss()
+                            self.verifyStackView.isHidden = false
                         })
                     })
+                    
                 }
                 //TODO: go to app
                 
@@ -109,4 +125,26 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         return false
     }
 
+    @IBAction func verifyEmailBtn(_ sender: Any) {
+        Auth.auth().currentUser?.sendEmailVerification(completion: { (error:Error?) in
+            var message:String = ""
+            var success:Bool!
+            if error != nil {
+                message = "Error In Sending the Verification Link"
+                success = false
+                
+            } else {
+                message = "Email Verification Link Sent"
+                success = true
+
+            }
+            DispatchQueue.main.async {
+                if success {
+                    KRProgressHUD.showSuccess(withMessage: message)
+                }else{
+                    KRProgressHUD.showError(withMessage: message)
+                }
+            }
+        })
+    }
 }

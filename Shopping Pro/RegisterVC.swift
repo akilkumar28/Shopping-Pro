@@ -63,10 +63,11 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
                     if error != nil {
                         KRProgressHUD.showError(withMessage: "Error in sending email verification link")
                     }else{
-                        print("#####",Thread.isMultiThreaded(),Thread.isMainThread)
+                        
                         KRProgressHUD.show(withMessage: "Please verify your email")
                     }
                 })
+                NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "reveal")))
                 self.dismiss(animated: true, completion: nil)
             })
             

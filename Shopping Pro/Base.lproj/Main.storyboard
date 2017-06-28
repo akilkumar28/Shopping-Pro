@@ -31,7 +31,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyQ-42-Ho9">
                                                 <rect key="frame" x="85" y="0.0" width="64" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bGR-aG-Xef">
@@ -56,7 +56,7 @@
                                                 <rect key="frame" x="94.5" y="115" width="45" height="30"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Log In">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="logInClicked:" destination="W3S-Rw-gJL" eventType="touchUpInside" id="E4e-NB-Boq"/>
@@ -106,7 +106,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vwr-JI-K0U">
                                                 <rect key="frame" x="0.0" y="0.0" width="142" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puq-r7-Tf1">
@@ -127,12 +127,33 @@
                                     <constraint firstItem="j7M-Bw-mPQ" firstAttribute="centerX" secondItem="c3J-68-l7f" secondAttribute="centerX" id="dVd-c8-vXo"/>
                                 </constraints>
                             </view>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="yIF-Vn-Hap">
+                                <rect key="frame" x="37" y="486" width="300.5" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Y3-i8-PuR">
+                                        <rect key="frame" x="0.0" y="0.0" width="74" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Click here"/>
+                                        <connections>
+                                            <action selector="verifyEmailBtn:" destination="W3S-Rw-gJL" eventType="touchUpInside" id="Agc-mw-Y9O"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" to resend the verification link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27b-Sg-Q5n">
+                                        <rect key="frame" x="75" y="0.0" width="225.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.42574925540000003" green="0.72963815970000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="yIF-Vn-Hap" firstAttribute="centerX" secondItem="877-oT-Am0" secondAttribute="centerX" id="M82-BH-gMh"/>
                             <constraint firstItem="Nzn-nD-gch" firstAttribute="centerX" secondItem="877-oT-Am0" secondAttribute="centerX" id="Tyz-hE-Dwk"/>
                             <constraint firstItem="c3J-68-l7f" firstAttribute="leading" secondItem="877-oT-Am0" secondAttribute="leading" id="YVV-o6-k12"/>
                             <constraint firstItem="pGX-So-BWG" firstAttribute="top" secondItem="c3J-68-l7f" secondAttribute="bottom" id="ZhL-RC-zBB"/>
+                            <constraint firstItem="yIF-Vn-Hap" firstAttribute="top" secondItem="Nzn-nD-gch" secondAttribute="bottom" constant="52.5" id="cTv-tJ-ViG"/>
                             <constraint firstAttribute="trailing" secondItem="c3J-68-l7f" secondAttribute="trailing" id="ep0-MP-aBl"/>
                             <constraint firstItem="Nzn-nD-gch" firstAttribute="centerY" secondItem="877-oT-Am0" secondAttribute="centerY" id="xm7-br-lF4">
                                 <variation key="heightClass=compact-widthClass=compact" constant="-20"/>
@@ -144,6 +165,7 @@
                         <outlet property="forgotPasswordBtn" destination="qjq-nb-ajE" id="sO7-0E-Zai"/>
                         <outlet property="logInBtnOutlet" destination="5rv-XL-vIG" id="YSs-zo-Iaa"/>
                         <outlet property="passwordTxtFld" destination="65K-a5-K2z" id="I8x-t8-mn1"/>
+                        <outlet property="verifyStackView" destination="yIF-Vn-Hap" id="0j8-gF-AAi"/>
                         <outlet property="viewHoldingSignIn" destination="Nzn-nD-gch" id="LC4-jy-5Uo"/>
                     </connections>
                 </viewController>
