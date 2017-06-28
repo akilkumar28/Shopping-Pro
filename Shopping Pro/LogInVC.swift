@@ -8,6 +8,7 @@
 
 import UIKit
 import KRProgressHUD
+import Firebase
 
 class LogInVC: UIViewController,UITextFieldDelegate {
 
@@ -32,7 +33,10 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         viewHoldingSignIn.layer.cornerRadius = 8
     }
     override func viewDidAppear(_ animated: Bool) {
-        KRProgressHUD.dismiss()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            KRProgressHUD.dismiss()
+        }
     }
     
     func reset() {
@@ -57,11 +61,19 @@ class LogInVC: UIViewController,UITextFieldDelegate {
                 }
                 
                 
-                
+                if (Auth.auth().currentUser?.isEmailVerified)! {
+                    self.goToApp()
+                    self.reset()
+                    
+                }else{
+                    KRProgressHUD.show(withMessage: "Please verify your email", completion: { 
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { 
+                            KRProgressHUD.dismiss()
+                        })
+                    })
+                }
                 //TODO: go to app
                 
-                self.goToApp()
-                self.reset()
             })
             
         } else {

@@ -32,13 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Auth.auth().addStateDidChangeListener { (auth:Auth, user:User?) in
             
             if user != nil {
-                
-                if userDefaults.object(forKey: kCURRENTUSER) != nil {
-                    
-                    self.goToApp()
+                if (auth.currentUser?.isEmailVerified)! {
+                    if userDefaults.object(forKey: kCURRENTUSER) != nil {
+                        self.goToApp()                        
+                    }
                     
                 }
-                
             }
         }
         

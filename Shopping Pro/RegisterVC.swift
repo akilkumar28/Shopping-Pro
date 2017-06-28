@@ -8,7 +8,7 @@
 
 import UIKit
 import KRProgressHUD
-
+import Firebase
 
 class RegisterVC: UIViewController,UITextFieldDelegate {
     
@@ -57,9 +57,17 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
                     self.reset()
                     return
                 }
-                self.goToApp()
-                self.reset()
-                
+//                self.goToApp()
+//                self.reset()
+                Auth.auth().currentUser?.sendEmailVerification(completion: { (error:Error?) in
+                    if error != nil {
+                        KRProgressHUD.showError(withMessage: "Error in sending email verification link")
+                    }else{
+                        print("#####",Thread.isMultiThreaded(),Thread.isMainThread)
+                        KRProgressHUD.show(withMessage: "Please verify your email")
+                    }
+                })
+                self.dismiss(animated: true, completion: nil)
             })
             
         }else{
