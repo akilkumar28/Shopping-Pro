@@ -21,10 +21,10 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     
     
     @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var nameTxtFld: FancyTextField!
-    @IBOutlet weak var extranInfoTxtFld: FancyTextField!
-    @IBOutlet weak var quantityTxtFld: FancyTextField!
-    @IBOutlet weak var priceTxtFld: FancyTextField!
+    @IBOutlet weak var nameTxtFld: UITextField!
+    @IBOutlet weak var extranInfoTxtFld: UITextField!
+    @IBOutlet weak var quantityTxtFld: UITextField!
+    @IBOutlet weak var priceTxtFld: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

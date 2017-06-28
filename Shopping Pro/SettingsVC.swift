@@ -20,7 +20,7 @@ class SettingsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,U
     
     
     
-    @IBOutlet weak var currencyTxtFLd: FancyTextField!
+    @IBOutlet weak var currencyTxtFLd: UITextField!
     @IBOutlet weak var logOutBtnOutlet: FancyButton!
     
     

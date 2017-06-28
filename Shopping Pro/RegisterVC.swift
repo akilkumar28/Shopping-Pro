@@ -14,10 +14,10 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
     
     
     @IBOutlet weak var viewHoldingRegisterOutlet: FancyView!
-    @IBOutlet weak var emailTxtFld: FancyTextField!
-    @IBOutlet weak var passwordTxtFld: FancyTextField!
-    @IBOutlet weak var firstNameTxtFld: FancyTextField!
-    @IBOutlet weak var lastNameTxtFld: FancyTextField!
+    @IBOutlet weak var emailTxtFld: UITextField!
+    @IBOutlet weak var passwordTxtFld: UITextField!
+    @IBOutlet weak var firstNameTxtFld: UITextField!
+    @IBOutlet weak var lastNameTxtFld: UITextField!
     @IBOutlet weak var registerBtnOutlet: FancyButton!
     
     

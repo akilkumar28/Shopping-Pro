@@ -17,8 +17,8 @@ class LogInVC: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate {
     @IBOutlet weak var verifyStackView: UIStackView!
     @IBOutlet weak var googleButton: GIDSignInButton!
     @IBOutlet weak var viewHoldingSignIn: FancyView!
-    @IBOutlet weak var emailTxtFld: FancyTextField!
-    @IBOutlet weak var passwordTxtFld: FancyTextField!
+    @IBOutlet weak var emailTxtFld: UITextField!
+    @IBOutlet weak var passwordTxtFld: UITextField!
     @IBOutlet weak var logInBtnOutlet: FancyButton!
     @IBOutlet weak var forgotPasswordBtn: UIButton!
     

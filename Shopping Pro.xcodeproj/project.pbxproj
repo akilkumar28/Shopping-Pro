@@ -35,7 +35,6 @@
 		89DB7B661F0250870084E198 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DB7B651F0250870084E198 /* User.swift */; };
 		89DB7B6A1F03C44B0084E198 /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DB7B691F03C44B0084E198 /* FancyView.swift */; };
 		89DB7B6C1F0402E10084E198 /* FancyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DB7B6B1F0402E10084E198 /* FancyButton.swift */; };
-		89DB7B6E1F0407E30084E198 /* FancyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DB7B6D1F0407E30084E198 /* FancyTextField.swift */; };
 		C96DC8C0CBA6B3EC44C1D2B6 /* Pods_Shopping_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B39E09A869A87552FEC57E /* Pods_Shopping_Pro.framework */; };
 		F14CB265C9B9E0FCC7ECE41C /* Pods_Shopping_ProUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E477C7789A795F290F400BC /* Pods_Shopping_ProUITests.framework */; };
 /* End PBXBuildFile section */
@@ -96,7 +95,6 @@
 		89DB7B651F0250870084E198 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		89DB7B691F03C44B0084E198 /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		89DB7B6B1F0402E10084E198 /* FancyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButton.swift; sourceTree = "<group>"; };
-		89DB7B6D1F0407E30084E198 /* FancyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyTextField.swift; sourceTree = "<group>"; };
 		9991E283CC3DA5E8227235D5 /* Pods_Shopping_ProTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_ProTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E477C7789A795F290F400BC /* Pods_Shopping_ProUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_ProUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD79898B37BEECAF81E3F9A /* Pods-Shopping ProTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping ProTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping ProTests/Pods-Shopping ProTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 				891E195B1F011CFC00295BAA /* groceryCell.swift */,
 				89DB7B691F03C44B0084E198 /* FancyView.swift */,
 				89DB7B6B1F0402E10084E198 /* FancyButton.swift */,
-				89DB7B6D1F0407E30084E198 /* FancyTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -564,7 +561,6 @@
 				891E19521EFFEA0500295BAA /* AddItemVC.swift in Sources */,
 				89DB7B641F024CA40084E198 /* RegisterVC.swift in Sources */,
 				891E195E1F0120C300295BAA /* GroceryItem.swift in Sources */,
-				89DB7B6E1F0407E30084E198 /* FancyTextField.swift in Sources */,
 				891E194E1EFFD00900295BAA /* myListCell.swift in Sources */,
 				89DB7B661F0250870084E198 /* User.swift in Sources */,
 			);
