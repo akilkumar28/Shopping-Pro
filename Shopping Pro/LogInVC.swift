@@ -9,26 +9,27 @@
 import UIKit
 import KRProgressHUD
 import Firebase
+import GoogleSignIn
 
-class LogInVC: UIViewController,UITextFieldDelegate {
 
+class LogInVC: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate {
+    
     @IBOutlet weak var verifyStackView: UIStackView!
-    
-    @IBOutlet weak var viewHoldingSignIn: UIView!
+    @IBOutlet weak var googleButton: GIDSignInButton!
+    @IBOutlet weak var viewHoldingSignIn: FancyView!
     @IBOutlet weak var emailTxtFld: UITextField!
-    
     @IBOutlet weak var passwordTxtFld: UITextField!
-    
-    @IBOutlet weak var logInBtnOutlet: UIButton!
-    
+    @IBOutlet weak var logInBtnOutlet: FancyButton!
     @IBOutlet weak var forgotPasswordBtn: UIButton!
     
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTxtFld.delegate = self
         passwordTxtFld.delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
+        logInBtnOutlet.generalButn()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reveal), name: NSNotification.Name(rawValue: "reveal"), object: nil)
     }
@@ -69,27 +70,23 @@ class LogInVC: UIViewController,UITextFieldDelegate {
             
             FUser.logInUserWith(email: emailTxtFld.text!, password: passwordTxtFld.text!, completion: { (error:Error?) in
                 if error != nil {
-                    KRProgressHUD.showError(withMessage: "Error occured while logging In")
-                    self.reset()
+                    DispatchQueue.main.async {
+                        KRProgressHUD.showMessage(error!.localizedDescription)
+                        self.reset()
+                    }
                     return
                 }
-                
-                
                 if (Auth.auth().currentUser?.isEmailVerified)! {
                     self.goToApp()
                     self.reset()
                     
-                }else{
-                    KRProgressHUD.show(withMessage: "Please verify your email", completion: { 
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { 
-                            KRProgressHUD.dismiss()
-                            self.verifyStackView.isHidden = false
-                        })
+                } else {
+                    KRProgressHUD.showWarning(withMessage: "Please verify your email")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                        KRProgressHUD.dismiss()
+                        self.verifyStackView.isHidden = false
                     })
-                    
                 }
-                //TODO: go to app
-                
             })
             
         } else {
@@ -124,7 +121,7 @@ class LogInVC: UIViewController,UITextFieldDelegate {
         }
         return false
     }
-
+    
     @IBAction func verifyEmailBtn(_ sender: Any) {
         Auth.auth().currentUser?.sendEmailVerification(completion: { (error:Error?) in
             var message:String = ""
@@ -136,7 +133,7 @@ class LogInVC: UIViewController,UITextFieldDelegate {
             } else {
                 message = "Email Verification Link Sent"
                 success = true
-
+                
             }
             DispatchQueue.main.async {
                 if success {

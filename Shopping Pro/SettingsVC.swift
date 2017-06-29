@@ -21,10 +21,10 @@ class SettingsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,U
     
     
     @IBOutlet weak var currencyTxtFLd: UITextField!
-    @IBOutlet weak var logOutBtnOutlet: UIButton!
+    @IBOutlet weak var logOutBtnOutlet: FancyButton!
     
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +37,7 @@ class SettingsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,U
         currencyTxtFLd.inputView = currencyPicker
         currencyTxtFLd.delegate = self
         
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,22 +93,21 @@ class SettingsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,U
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
-
+    
+    
     @IBAction func logOutBtnPrssd(_ sender: Any) {
         
         
         FUser.logOutUser { (success:Bool) in
             if success {
                 cleanUpFirebaseObservers()
-                KRProgressHUD.show(withMessage: "Signing Out...")
+                DispatchQueue.main.async {
+                    KRProgressHUD.show(withMessage: "Signing Out...")
+                }
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") as! LogInVC
-                
+                userDefaults.set(false, forKey: "google")
                 self.present(vc, animated: true, completion: nil)
             }
         }
-        
-        
     }
-
 }

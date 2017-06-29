@@ -31,7 +31,7 @@ class SearchVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var addBtnOutlet: UIButton!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +47,7 @@ class SearchVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
         //adding search bar to tableview
         
         myTableView.tableHeaderView = searchController.searchBar
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,7 +107,7 @@ class SearchVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
         }
         
         
-
+        
     }
     
     func loadGroceryItems() {
@@ -128,7 +128,9 @@ class SearchVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
             }else{
                 print("No Snapshot")
             }
-         self.myTableView.reloadData()
+            DispatchQueue.main.async {
+                self.myTableView.reloadData()
+            }
         }
         
     }
@@ -142,24 +144,26 @@ class SearchVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
             guard isSwipeRightEnabled else {
                 return nil
             }}
+        
+        let delete = SwipeAction(style: .destructive, title: nil, handler: { (action, indexPath) in
             
-            let delete = SwipeAction(style: .destructive, title: nil, handler: { (action, indexPath) in
-                
-                if self.searchController.isActive && self.searchController.searchBar.text != "" {
-                    item = self.filteredGroceryItems[indexPath.row]
-                    self.filteredGroceryItems.remove(at: indexPath.row)
-                }else{
-                    item = self.groceryItemsArray[indexPath.row]
-                    self.groceryItemsArray.remove(at: indexPath.row)
-                }
-                item.deleteItemInBackgroud(groceryItem: item)
+            if self.searchController.isActive && self.searchController.searchBar.text != "" {
+                item = self.filteredGroceryItems[indexPath.row]
+                self.filteredGroceryItems.remove(at: indexPath.row)
+            }else{
+                item = self.groceryItemsArray[indexPath.row]
+                self.groceryItemsArray.remove(at: indexPath.row)
+            }
+            item.deleteItemInBackgroud(groceryItem: item)
+            DispatchQueue.main.async {
                 self.myTableView.beginUpdates()
                 action.fulfill(with: .delete)
                 self.myTableView.endUpdates()
-            })
-            configure(action: delete, with: .trash)
-            return [delete]
-        }
+            }
+        })
+        configure(action: delete, with: .trash)
+        return [delete]
+    }
     
     func configure(action: SwipeAction, with descriptor: ActionDescriptor) {
         
@@ -193,16 +197,16 @@ class SearchVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Swipe
         })
         
     }
- 
+    
     @IBAction func cancelTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-
+    
     @IBAction func addBtnPrssd(_ sender: Any) {
         
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddItemVC") as! AddItemVC
         vc.addItemToList = true
         self.present(vc, animated: true, completion: nil)
     }
-   
+    
 }

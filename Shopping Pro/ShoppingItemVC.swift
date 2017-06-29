@@ -27,19 +27,17 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var totalPriceLabel: UILabel!
     
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         loadItems()
     }
-
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -57,7 +55,6 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = myTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? myItemCell {
-            
             
             cell.delegate = self
             cell.selectedBackgroundView = createSelectedBacgroundView()
@@ -125,7 +122,6 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func headerForView(title1:String)->UIView {
         
-        
         let view = UIView()
         
         view.backgroundColor = UIColor.darkGray
@@ -143,7 +139,7 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     func loadItems() {
-
+        
         FIRDatabaseRef.child(kSHOPPINGITEM).child(shoppingList.id).observe(.value) { (snapshot:DataSnapshot) in
             
             if snapshot.exists() {
@@ -164,7 +160,9 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
             }
             self.calculateTotal()
-            self.updateUI()
+            DispatchQueue.main.async {
+                self.updateUI()
+            }
         }
     }
     
@@ -174,7 +172,6 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         let currency = userDefaults.value(forKey: kCURRENCY) as! String
         self.itemsLabel.text = "Items Left: \(self.unboughtItem.count)"
         totalPriceLabel.text = "Total Price: \(currency)\(String(format: "%.2f", totaPrice))"
-        
         self.myTableView.reloadData()
         
         
@@ -196,15 +193,13 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         shoppingList.updateItemInBackground(shoppingList: shoppingList) { (error:Error?) in
             if error != nil {
-                KRProgressHUD.showError(withMessage: "Error occured while saving")
+                DispatchQueue.main.async {
+                    KRProgressHUD.showError(withMessage: "Error occured while saving")
+                }
                 return
             }
         }
     }
-    
-    
-    
-    
     
     
     //MARK: IBActions
@@ -260,24 +255,29 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                 return nil
             }
             
-             let buyItem = SwipeAction(style: .default, title: nil) { action, indexPath in
-            
-            item.isBought = !item.isBought
-            item.updateItemInBackground(shoppingItem: item, completion: { (error) in
-                if error != nil {
-                    KRProgressHUD.showError(withMessage: "Error occured while saving")
+            let buyItem = SwipeAction(style: .default, title: nil) { action, indexPath in
+                
+                item.isBought = !item.isBought
+                item.updateItemInBackground(shoppingItem: item, completion: { (error) in
+                    if error != nil {
+                        DispatchQueue.main.async {
+                            KRProgressHUD.showError(withMessage: "Error occured while saving")
+                        }
+                        
+                    }
+                })
+                
+                if indexPath.section == 0 {
+                    self.unboughtItem.remove(at: indexPath.row)
+                    self.boughtItem.append(item)
+                }else{
+                    self.unboughtItem.append(item)
+                    self.boughtItem.remove(at: indexPath.row)
                 }
-            })
-            
-            if indexPath.section == 0 {
-                self.unboughtItem.remove(at: indexPath.row)
-                self.boughtItem.append(item)
-            }else{
-                self.unboughtItem.append(item)
-                self.boughtItem.remove(at: indexPath.row)
+                DispatchQueue.main.async {
+                    self.myTableView.reloadData()
+                }
             }
-         self.myTableView.reloadData()
-        }
             
             buyItem.accessibilityLabel = item.isBought ? "Buy" : "Return"
             let descriptor: ActionDescriptor = item.isBought ?.returnPurchase : .buy
@@ -298,9 +298,11 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
                 item.deleteItemInBackgroud(shoppingItem: item)
                 
-                self.myTableView.beginUpdates()
-                action.fulfill(with: .delete)
-                self.myTableView.endUpdates()
+                DispatchQueue.main.async {
+                    self.myTableView.beginUpdates()
+                    action.fulfill(with: .delete)
+                    self.myTableView.endUpdates()
+                }
             })
             
             
@@ -318,7 +320,7 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         action.image = descriptor.image()
         action.backgroundColor = descriptor.color
     }
-
+    
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
         
@@ -345,7 +347,9 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         shoppingItem.shoppingListId = self.shoppingList.id
         shoppingItem.saveItemsInBackground(shoppingItem: shoppingItem) { (error:Error?) in
             if error != nil {
-                KRProgressHUD.showError(withMessage: "Error occured while loading your item")
+                DispatchQueue.main.async {
+                    KRProgressHUD.showError(withMessage: "Error occured while loading your item")
+                }
             }
             
         }

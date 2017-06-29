@@ -26,17 +26,10 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     @IBOutlet weak var quantityTxtFld: UITextField!
     @IBOutlet weak var priceTxtFld: UITextField!
     
-    
-    
-    
-    
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let image = UIImage(named: "ShoppingCartEmpty")!.scaleImageToSize(newSize: itemImageView.frame.size)
+        let image = UIImage(named: "placeholder imageView")!.scaleImageToSize(newSize: itemImageView.frame.size)
         itemImageView.image = image.circleMasked
         
         if shoppingItem != nil || groceryItem != nil {
@@ -44,7 +37,7 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             updateUI()
             
         }
-
+        
     }
     
     func updateUI() {
@@ -59,10 +52,11 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             if shoppingItem!.image != "" {
                 
                 imageFromData(imageData: shoppingItem!.image, withBlock: { (image:UIImage?) in
-                    self.itemImage = image!
-                    let newImage = image!.scaleImageToSize(newSize: self.itemImageView.frame.size)
-                    self.itemImageView.image = newImage.circleMasked
-                    
+                    DispatchQueue.main.async {
+                        self.itemImage = image!
+                        let newImage = image!.scaleImageToSize(newSize: self.itemImageView.frame.size)
+                        self.itemImageView.image = newImage.circleMasked
+                    }
                 })
             }
         }else if groceryItem != nil {
@@ -75,10 +69,11 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             if groceryItem!.image != "" {
                 
                 imageFromData(imageData: groceryItem!.image, withBlock: { (image:UIImage?) in
-                    self.itemImage = image!
-                    let newImage = image!.scaleImageToSize(newSize: self.itemImageView.frame.size)
-                    self.itemImageView.image = newImage.circleMasked
-                    
+                    DispatchQueue.main.async {
+                        self.itemImage = image!
+                        let newImage = image!.scaleImageToSize(newSize: self.itemImageView.frame.size)
+                        self.itemImageView.image = newImage.circleMasked
+                    }
                 })
             }
             
@@ -110,7 +105,9 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             
             shoppingItem!.updateItemInBackground(shoppingItem: shoppingItem!, completion: { (error:Error?) in
                 if error != nil {
-                    KRProgressHUD.showError(withMessage: "Error while updating the item")
+                    DispatchQueue.main.async {
+                        KRProgressHUD.showError(withMessage: "Error while updating the item")
+                    }
                     return
                 }
             })
@@ -123,14 +120,16 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             
             groceryItem!.updateItemInBackground(groceryItem: groceryItem!, completion: { (error) in
                 if error != nil {
-                    KRProgressHUD.showError(withMessage: "Error while updating the item")
+                    DispatchQueue.main.async {
+                        KRProgressHUD.showError(withMessage: "Error while updating the item")
+                    }
                     return
                 }
             })
-
+            
         }
         
-       self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -149,7 +148,7 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             KRProgressHUD.showWarning(withMessage: "Empty Fields!")
         }
     }
-
+    
     @IBAction func cancelBtnTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -175,7 +174,9 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             let groceryItem = GroceryItem(name: nameTxtFld.text!, info: extranInfoTxtFld.text!, price: Float(priceTxtFld.text!)!, image: imageData)
             groceryItem.saveItemsInBackground(groceryItem: groceryItem, completion: { (error) in
                 if error != nil {
-                    KRProgressHUD.showError(withMessage: "Error while creating the item")
+                    DispatchQueue.main.async {
+                        KRProgressHUD.showError(withMessage: "Error while creating the item")
+                    }
                     return
                 }
                 self.dismiss(animated: true, completion: nil)
@@ -189,7 +190,9 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             
             shoppingItem.saveItemsInBackground(shoppingItem: shoppingItem) { (error) in
                 if error != nil {
-                    KRProgressHUD.showError(withMessage: "Error while saving the item")
+                    DispatchQueue.main.async {
+                        KRProgressHUD.showError(withMessage: "Error while saving the item")
+                    }
                     return
                 }
             }
@@ -207,7 +210,9 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             
             groceryItem.saveItemsInBackground(groceryItem: groceryItem, completion: { (error:Error?) in
                 if error != nil {
-                    KRProgressHUD.showError(withMessage: "Error occured while saving to your list")
+                    DispatchQueue.main.async {
+                        KRProgressHUD.showError(withMessage: "Error occured while saving to your list")
+                    }
                 }
             })
             
@@ -245,7 +250,7 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         optionMenu.addAction(cancel)
         
         present(optionMenu, animated: true, completion: nil)
-
+        
     }
     
     
@@ -274,6 +279,6 @@ class AddItemVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         }
         return false
     }
-   
-
+    
+    
 }

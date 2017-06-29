@@ -10,7 +10,7 @@ import UIKit
 import SwipeCellKit
 
 class myListCell: SwipeTableViewCell {
-
+    
     @IBOutlet weak var nameTxtField: UILabel!
     @IBOutlet weak var itemsTxtField: UILabel!
     @IBOutlet weak var dateTxtField: UILabel!
