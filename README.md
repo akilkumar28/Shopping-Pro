@@ -2,10 +2,10 @@
 
 Link -> https://itunes.apple.com/us/app/shopping-pro-2017/id1253927868?mt=8 
 
-Description
+# Description:
 Shopping Pro 2017 is a simple and a powerful shopping companion that lets you manage all your shopping needs. Its simple user interface makes you comfortable with the application the moment you start using it.
 -------------------------------------------------------------
-Why use Shopping Pro 2017?
+# Why use Shopping Pro 2017?
 
 1.) Sign in and save your information across all devices.
 2.) Easily access your account using either email or password or using your Google account.
