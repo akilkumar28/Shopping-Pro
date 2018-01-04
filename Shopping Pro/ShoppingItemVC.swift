@@ -35,6 +35,7 @@ class ShoppingItemVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadItems()
     }
     

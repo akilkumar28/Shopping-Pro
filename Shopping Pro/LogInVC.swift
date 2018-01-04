@@ -48,7 +48,7 @@ class LogInVC: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func reveal(){
+    @objc func reveal(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.verifyStackView.isHidden = false
         }
