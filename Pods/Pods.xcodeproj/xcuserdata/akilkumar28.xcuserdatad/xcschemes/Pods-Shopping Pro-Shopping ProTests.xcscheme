@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A8AD1D6573CE09460EF7045A1FCA7BC7"
-               BuildableName = "Pods_Shopping_ProUITests.framework"
-               BlueprintName = "Pods-Shopping ProUITests"
+               BlueprintIdentifier = "9BBA16980468FFA3AF94DA1D1F92DF5F"
+               BuildableName = "Pods_Shopping_Pro_Shopping_ProTests.framework"
+               BlueprintName = "Pods-Shopping Pro-Shopping ProTests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A8AD1D6573CE09460EF7045A1FCA7BC7"
-            BuildableName = "Pods_Shopping_ProUITests.framework"
-            BlueprintName = "Pods-Shopping ProUITests"
+            BlueprintIdentifier = "9BBA16980468FFA3AF94DA1D1F92DF5F"
+            BuildableName = "Pods_Shopping_Pro_Shopping_ProTests.framework"
+            BlueprintName = "Pods-Shopping Pro-Shopping ProTests"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

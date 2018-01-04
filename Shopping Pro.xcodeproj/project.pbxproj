@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00E9EFD754FBD74456DC563B /* Pods_Shopping_Pro_Shopping_ProUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D8E2809B3C66A3BB5A0535 /* Pods_Shopping_Pro_Shopping_ProUITests.framework */; };
+		28E6AA5C302AA21921D739E5 /* Pods_Shopping_Pro_Shopping_ProTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98697EC06938220847BC4D5 /* Pods_Shopping_Pro_Shopping_ProTests.framework */; };
 		3B4E5150AE63E09B2FD65973 /* Pods_Shopping_ProTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9991E283CC3DA5E8227235D5 /* Pods_Shopping_ProTests.framework */; };
 		891E19101EFF8F3500295BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E190F1EFF8F3500295BAA /* AppDelegate.swift */; };
 		891E19151EFF8F3500295BAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 891E19131EFF8F3500295BAA /* Main.storyboard */; };
@@ -55,11 +57,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27D8E2809B3C66A3BB5A0535 /* Pods_Shopping_Pro_Shopping_ProUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_Pro_Shopping_ProUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		299F1BC46C0407DCC151F680 /* Pods-Shopping ProUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping ProUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping ProUITests/Pods-Shopping ProUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		45D3612F6521412662B42F34 /* Pods-Shopping Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping Pro/Pods-Shopping Pro.release.xcconfig"; sourceTree = "<group>"; };
+		45D3E4F41CDFD2227246A8ED /* Pods-Shopping Pro-Shopping ProUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping Pro-Shopping ProUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping Pro-Shopping ProUITests/Pods-Shopping Pro-Shopping ProUITests.release.xcconfig"; sourceTree = "<group>"; };
 		51D0C1CCB82CF27A6350444E /* Pods-Shopping ProUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping ProUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping ProUITests/Pods-Shopping ProUITests.release.xcconfig"; sourceTree = "<group>"; };
 		60B39E09A869A87552FEC57E /* Pods_Shopping_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72AD768B21936AED1FB33BF1 /* Pods-Shopping ProTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping ProTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping ProTests/Pods-Shopping ProTests.release.xcconfig"; sourceTree = "<group>"; };
+		766414A4CDC969E4585369F9 /* Pods-Shopping Pro-Shopping ProTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping Pro-Shopping ProTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping Pro-Shopping ProTests/Pods-Shopping Pro-Shopping ProTests.debug.xcconfig"; sourceTree = "<group>"; };
 		891E190C1EFF8F3500295BAA /* Shopping Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		891E190F1EFF8F3500295BAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		891E19141EFF8F3500295BAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,9 +94,12 @@
 		89DB7B651F0250870084E198 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		89DB7B691F03C44B0084E198 /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		89DB7B6B1F0402E10084E198 /* FancyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButton.swift; sourceTree = "<group>"; };
+		89DC42927FC8D5182C18D0BE /* Pods-Shopping Pro-Shopping ProUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping Pro-Shopping ProUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping Pro-Shopping ProUITests/Pods-Shopping Pro-Shopping ProUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9991E283CC3DA5E8227235D5 /* Pods_Shopping_ProTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_ProTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E477C7789A795F290F400BC /* Pods_Shopping_ProUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_ProUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD79898B37BEECAF81E3F9A /* Pods-Shopping ProTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping ProTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping ProTests/Pods-Shopping ProTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A98697EC06938220847BC4D5 /* Pods_Shopping_Pro_Shopping_ProTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping_Pro_Shopping_ProTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D10233E8ECCF8904555330A2 /* Pods-Shopping Pro-Shopping ProTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping Pro-Shopping ProTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping Pro-Shopping ProTests/Pods-Shopping Pro-Shopping ProTests.release.xcconfig"; sourceTree = "<group>"; };
 		F166536D378847D32291D6B9 /* Pods-Shopping Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping Pro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping Pro/Pods-Shopping Pro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B4E5150AE63E09B2FD65973 /* Pods_Shopping_ProTests.framework in Frameworks */,
+				28E6AA5C302AA21921D739E5 /* Pods_Shopping_Pro_Shopping_ProTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F14CB265C9B9E0FCC7ECE41C /* Pods_Shopping_ProUITests.framework in Frameworks */,
+				00E9EFD754FBD74456DC563B /* Pods_Shopping_Pro_Shopping_ProUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +224,8 @@
 				60B39E09A869A87552FEC57E /* Pods_Shopping_Pro.framework */,
 				9991E283CC3DA5E8227235D5 /* Pods_Shopping_ProTests.framework */,
 				9E477C7789A795F290F400BC /* Pods_Shopping_ProUITests.framework */,
+				A98697EC06938220847BC4D5 /* Pods_Shopping_Pro_Shopping_ProTests.framework */,
+				27D8E2809B3C66A3BB5A0535 /* Pods_Shopping_Pro_Shopping_ProUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -227,6 +239,10 @@
 				72AD768B21936AED1FB33BF1 /* Pods-Shopping ProTests.release.xcconfig */,
 				299F1BC46C0407DCC151F680 /* Pods-Shopping ProUITests.debug.xcconfig */,
 				51D0C1CCB82CF27A6350444E /* Pods-Shopping ProUITests.release.xcconfig */,
+				766414A4CDC969E4585369F9 /* Pods-Shopping Pro-Shopping ProTests.debug.xcconfig */,
+				D10233E8ECCF8904555330A2 /* Pods-Shopping Pro-Shopping ProTests.release.xcconfig */,
+				89DC42927FC8D5182C18D0BE /* Pods-Shopping Pro-Shopping ProUITests.debug.xcconfig */,
+				45D3E4F41CDFD2227246A8ED /* Pods-Shopping Pro-Shopping ProUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -383,13 +399,30 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Shopping Pro-Shopping ProUITests/Pods-Shopping Pro-Shopping ProUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopping ProUITests/Pods-Shopping ProUITests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopping Pro-Shopping ProUITests/Pods-Shopping Pro-Shopping ProUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1C9FE8304B855BC15714A61F /* [CP] Check Pods Manifest.lock */ = {
@@ -421,7 +454,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Shopping ProTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Shopping Pro-Shopping ProTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -434,13 +467,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Shopping Pro-Shopping ProTests/Pods-Shopping Pro-Shopping ProTests-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopping ProTests/Pods-Shopping ProTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopping Pro-Shopping ProTests/Pods-Shopping Pro-Shopping ProTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		613A61AC1730E70A79FDE673 /* [CP] Check Pods Manifest.lock */ = {
@@ -454,7 +490,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Shopping ProUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Shopping Pro-Shopping ProUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -517,13 +553,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Shopping Pro-Shopping ProUITests/Pods-Shopping Pro-Shopping ProUITests-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopping ProUITests/Pods-Shopping ProUITests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopping Pro-Shopping ProUITests/Pods-Shopping Pro-Shopping ProUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F57BD6503FBF32F024641984 /* [CP] Embed Pods Frameworks */ = {
@@ -532,13 +571,30 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Shopping Pro-Shopping ProTests/Pods-Shopping Pro-Shopping ProTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopping ProTests/Pods-Shopping ProTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopping Pro-Shopping ProTests/Pods-Shopping Pro-Shopping ProTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -766,7 +822,7 @@
 		};
 		891E19381EFF8F3500295BAA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9FD79898B37BEECAF81E3F9A /* Pods-Shopping ProTests.debug.xcconfig */;
+			baseConfigurationReference = 766414A4CDC969E4585369F9 /* Pods-Shopping Pro-Shopping ProTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -783,7 +839,7 @@
 		};
 		891E19391EFF8F3500295BAA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72AD768B21936AED1FB33BF1 /* Pods-Shopping ProTests.release.xcconfig */;
+			baseConfigurationReference = D10233E8ECCF8904555330A2 /* Pods-Shopping Pro-Shopping ProTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -800,7 +856,7 @@
 		};
 		891E193B1EFF8F3500295BAA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 299F1BC46C0407DCC151F680 /* Pods-Shopping ProUITests.debug.xcconfig */;
+			baseConfigurationReference = 89DC42927FC8D5182C18D0BE /* Pods-Shopping Pro-Shopping ProUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6UPMA52VHK;
@@ -816,7 +872,7 @@
 		};
 		891E193C1EFF8F3500295BAA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51D0C1CCB82CF27A6350444E /* Pods-Shopping ProUITests.release.xcconfig */;
+			baseConfigurationReference = 45D3E4F41CDFD2227246A8ED /* Pods-Shopping Pro-Shopping ProUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6UPMA52VHK;

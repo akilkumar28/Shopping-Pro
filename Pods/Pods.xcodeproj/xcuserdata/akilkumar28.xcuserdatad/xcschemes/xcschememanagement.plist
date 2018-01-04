@@ -29,17 +29,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Shopping Pro-Shopping ProTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Shopping Pro-Shopping ProUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Shopping Pro.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Shopping ProTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Shopping ProUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

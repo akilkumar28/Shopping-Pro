@@ -17,12 +17,12 @@ target 'Shopping Pro' do
   # Pods for Shopping Pro
 
   target 'Shopping ProTests' do
-    inherit! :search_paths
+    inherit! :complete
     # Pods for testing
   end
 
   target 'Shopping ProUITests' do
-    inherit! :search_paths
+    inherit! :complete
     # Pods for testing
   end
 

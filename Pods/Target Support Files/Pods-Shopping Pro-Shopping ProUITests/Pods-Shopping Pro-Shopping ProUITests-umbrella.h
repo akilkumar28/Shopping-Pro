@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_Shopping_ProUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_Shopping_ProUITestsVersionString[];
+FOUNDATION_EXPORT double Pods_Shopping_Pro_Shopping_ProUITestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Shopping_Pro_Shopping_ProUITestsVersionString[];
 
